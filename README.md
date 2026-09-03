@@ -2,6 +2,7 @@
 
 [![Version](https://img.shields.io/badge/version-1.0.0-087653)](https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/)
 [![Reference cases](https://img.shields.io/badge/reference_cases-5%2F5_pass-087653)](data/v1/baseline-report.json)
+[![Benchmark DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22279744.svg)](https://doi.org/10.5281/zenodo.22279744)
 [![Source dataset DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22239714.svg)](https://doi.org/10.5281/zenodo.22239714)
 
 Could a historical backtest have known and used the selected filing value at the stated decision time?
@@ -72,11 +73,13 @@ Market prices and corporate-action adjustments are not bundled. `price-adapter-s
 ## Research and citation
 
 - Canonical explanation: https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/
+- Frozen version 1.0.0 DOI: https://doi.org/10.5281/zenodo.22279744
+- All-versions concept DOI: https://doi.org/10.5281/zenodo.22279743
 - Underlying source cross-section DOI: https://doi.org/10.5281/zenodo.22239714
 - Citation metadata: [`CITATION.cff`](CITATION.cff)
 - Release protocol: [`docs/UPDATE-PROTOCOL.md`](docs/UPDATE-PROTOCOL.md)
 
-A separate benchmark DOI will be added after the version 1 Zenodo record is reviewed and published.
+Cite the version DOI for results tied to the frozen 1.0.0 files. Cite the concept DOI when referring to the benchmark series across versions.
 
 ## Rights and boundary
 

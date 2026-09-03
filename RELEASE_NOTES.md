@@ -2,6 +2,8 @@
 
 Initial public release of the AhaSignals Point-in-Time Backtest Validation Benchmark.
 
+Permanent archive: https://doi.org/10.5281/zenodo.22279744. The all-versions concept DOI is https://doi.org/10.5281/zenodo.22279743.
+
 ## Included
 
 - five frozen failure cases with explicit expected answers;

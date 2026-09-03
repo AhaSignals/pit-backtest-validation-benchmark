@@ -4,6 +4,7 @@ type: software
 title: "AhaSignals Point-in-Time Backtest Validation Benchmark"
 version: 1.0.0
 date-released: 2026-09-03
+doi: 10.5281/zenodo.22279744
 authors:
   - name: AhaSignals
 license: MIT
@@ -23,4 +24,5 @@ preferred-citation:
   title: "AhaSignals Point-in-Time Backtest Validation Benchmark"
   version: 1.0.0
   year: 2026
-  url: "https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/"
+  doi: 10.5281/zenodo.22279744
+  url: "https://doi.org/10.5281/zenodo.22279744"

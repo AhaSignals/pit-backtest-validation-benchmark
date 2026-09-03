@@ -1,4 +1,8 @@
-# Zenodo submission draft — requires human review
+# Published Zenodo record
+
+- Version DOI: https://doi.org/10.5281/zenodo.22279744
+- All-versions concept DOI: https://doi.org/10.5281/zenodo.22279743
+- Published record: https://zenodo.org/records/22279744
 
 ## Resource type
 
@@ -49,4 +53,4 @@ https://github.com/AhaSignals/pit-backtest-validation-benchmark
 
 ## Files
 
-Upload the complete GitHub release archive or the repository files at tag `v1.0.0`. Do not regenerate the frozen files in `data/v1/` after tagging.
+The record contains the original `ahasignals-pit-backtest-validation-benchmark-v1.0.0.zip` attached to the GitHub release. Its SHA-256 is `dc90b937e9ae0460518e52c772e5ca0b1f06fac05b47bbeb81da794070881b80`. Do not regenerate the frozen files in `data/v1/` or alter tag `v1.0.0`.
