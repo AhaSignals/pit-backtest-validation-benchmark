@@ -1,0 +1,34 @@
+{
+  "title": "AhaSignals Point-in-Time Backtest Validation Benchmark",
+  "upload_type": "software",
+  "description": "Five open, source-dated reference cases for detecting later-value backfilling, sign-flip leakage, preliminary-to-filed eligibility errors, evidence upgrades and fiscal-period misalignment in SEC-filing backtests. Version 1 is a data-integrity benchmark and does not establish investment performance.",
+  "creators": [
+    { "name": "AhaSignals" }
+  ],
+  "version": "1.0.0",
+  "publication_date": "2026-09-03",
+  "license": "MIT",
+  "access_right": "open",
+  "language": "eng",
+  "keywords": [
+    "point-in-time financial data",
+    "backtest validation",
+    "look-ahead bias",
+    "SEC filings",
+    "financial data revisions",
+    "reproducible research",
+    "quantitative finance"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.22239714",
+      "relation": "isDerivedFrom",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "as-pit-benchmark-v1-baseline-2026-09-03",
+  "benchmarkId": "ahasignals-pit-backtest-validation-benchmark-v1",
+  "benchmarkVersion": "1.0.0",
+  "generatedAt": "2026-09-03T00:00:00.000Z",
+  "implementation": "AhaSignals reference as-of selector",
+  "result": "pass",
+  "summary": {
+    "caseCount": 5,
+    "passedCaseCount": 5,
+    "failedCaseCount": 0,
+    "issuerCount": 7,
+    "coreWeaveVintageObservationCount": 28,
+    "coreWeaveRevisionSeriesCount": 14,
+    "futureVintageValuesBlockedAtFirstDecision": 14,
+    "roundingCompatibleCount": 10,
+    "presentationChangeCount": 4,
+    "signFlipCount": 1,
+    "crossSectionMetricCellCount": 24,
+    "crossSectionSourceUpgradeCount": 4,
+    "crossSectionNewlyAdmittedIssuerCount": 1
+  },
+  "caseResults": [
+    {
+      "caseId": "AS-PIT-001",
+      "status": "pass",
+      "selectedObservationId": "crwv:revenue-2025-04-01-2025-06-30:v1",
+      "expectedObservationId": "crwv:revenue-2025-04-01-2025-06-30:v1",
+      "futureObservationBlocked": true
+    },
+    {
+      "caseId": "AS-PIT-002",
+      "status": "pass",
+      "selectedObservationId": "crwv:other-investing-h1-2025:v1",
+      "expectedObservationId": "crwv:other-investing-h1-2025:v1",
+      "futureObservationBlocked": true
+    },
+    {
+      "caseId": "AS-PIT-003",
+      "status": "pass",
+      "selectedObservationId": null,
+      "expectedObservationId": null,
+      "futureObservationBlocked": true
+    },
+    {
+      "caseId": "AS-PIT-004",
+      "status": "pass",
+      "selectedObservationId": null,
+      "expectedObservationId": null,
+      "futureObservationBlocked": true
+    },
+    {
+      "caseId": "AS-PIT-005",
+      "status": "pass",
+      "selectedObservationId": null,
+      "expectedObservationId": null,
+      "futureObservationBlocked": true
+    }
+  ],
+  "performanceLayer": {
+    "status": "not-evaluated",
+    "reason": "The benchmark does not bundle market prices, corporate-action adjustments or return series. A compliant external price adapter is required before IC, turnover, return or drawdown differences can be calculated."
+  },
+  "reproducibility": {
+    "deterministic": true,
+    "oldReleasesRemainAddressable": true,
+    "missingValuesAreNeverCoercedToZero": true
+  }
+}

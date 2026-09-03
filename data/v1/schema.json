@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahasignals.com/data/benchmarks/pit-backtest-validation/v1/schema.json",
+  "title": "AhaSignals Point-in-Time Backtest Validation Benchmark",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "artifact",
+    "researchQuestion",
+    "scope",
+    "executionPolicy",
+    "sourceDatasets",
+    "decisionCases",
+    "baselineReport",
+    "limitations",
+    "citation",
+    "integrity"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "artifact": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "version",
+        "canonicalUrl",
+        "repositoryUrl",
+        "publishedAt",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "const": "ahasignals-pit-backtest-validation-benchmark-v1"
+        },
+        "version": {
+          "const": "1.0.0"
+        },
+        "publishedAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "status": {
+          "const": "frozen"
+        }
+      }
+    },
+    "decisionCases": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "caseId",
+          "title",
+          "failureMode",
+          "question",
+          "decisionTime",
+          "input",
+          "expected",
+          "passRule"
+        ]
+      }
+    },
+    "baselineReport": {
+      "type": "object",
+      "required": [
+        "runId",
+        "benchmarkId",
+        "benchmarkVersion",
+        "result",
+        "summary",
+        "caseResults",
+        "performanceLayer"
+      ]
+    },
+    "integrity": {
+      "type": "object",
+      "required": [
+        "algorithm",
+        "canonicalization",
+        "payloadSha256"
+      ]
+    }
+  }
+}

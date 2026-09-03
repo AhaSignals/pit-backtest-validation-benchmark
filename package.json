@@ -1,0 +1,15 @@
+{
+  "name": "@ahasignals/pit-backtest-validation-benchmark",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Open reference cases for detecting point-in-time data failures in SEC-filing backtests.",
+  "scripts": {
+    "test": "node scripts/verify.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

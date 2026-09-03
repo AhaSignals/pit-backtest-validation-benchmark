@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this benchmark, cite the frozen version and the underlying source dataset."
+type: software
+title: "AhaSignals Point-in-Time Backtest Validation Benchmark"
+version: 1.0.0
+date-released: 2026-09-03
+authors:
+  - name: AhaSignals
+license: MIT
+url: "https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/"
+repository-code: "https://github.com/AhaSignals/pit-backtest-validation-benchmark"
+abstract: "Five open, source-dated test cases for detecting later-value backfilling, sign-flip leakage, preliminary-to-filed eligibility errors, evidence upgrades and fiscal-period misalignment in SEC-filing backtests."
+keywords:
+  - point-in-time financial data
+  - backtest validation
+  - look-ahead bias
+  - SEC filings
+  - reproducible research
+preferred-citation:
+  type: software
+  authors:
+    - name: AhaSignals
+  title: "AhaSignals Point-in-Time Backtest Validation Benchmark"
+  version: 1.0.0
+  year: 2026
+  url: "https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/"

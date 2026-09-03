@@ -1,0 +1,292 @@
+{
+  "schemaVersion": "1.0.0",
+  "schemaUrl": "https://ahasignals.com/data/benchmarks/pit-backtest-validation/v1/schema.json",
+  "artifact": {
+    "id": "ahasignals-pit-backtest-validation-benchmark-v1",
+    "title": "AhaSignals Point-in-Time Backtest Validation Benchmark",
+    "version": "1.0.0",
+    "canonicalUrl": "https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/",
+    "repositoryUrl": "https://github.com/AhaSignals/pit-backtest-validation-benchmark",
+    "publishedAt": "2026-09-03",
+    "status": "frozen",
+    "dataLicense": "CC BY 4.0",
+    "softwareLicense": "MIT",
+    "creator": "AhaSignals"
+  },
+  "researchQuestion": "Could a historical backtest have known and used the selected filing value at the stated decision time?",
+  "scope": {
+    "caseCount": 5,
+    "issuerCount": 7,
+    "includedCaseIds": [
+      "AS-PIT-001",
+      "AS-PIT-002",
+      "AS-PIT-003",
+      "AS-PIT-004",
+      "AS-PIT-005"
+    ],
+    "excludedFromPerformanceClaims": [
+      "factor alpha",
+      "information coefficient",
+      "portfolio return",
+      "Sharpe ratio",
+      "drawdown"
+    ]
+  },
+  "executionPolicy": {
+    "knowledgeClock": "A filing fact becomes publicly available at its SEC acceptance timestamp, not at its fiscal period end.",
+    "dailyTradabilityRule": "For included CoreWeave cases, the conservative daily decision time is the next regular U.S. equity session open after SEC acceptance.",
+    "versionSelectionRule": "For each matched fact identity, select the latest source vintage with acceptedAt less than or equal to decisionTime.",
+    "noSilentOverwrite": "A later comparative, amended filing or AhaSignals correction creates a separately addressable version and never replaces a frozen predecessor.",
+    "missingDataRule": "Missing, ineligible or not-yet-public observations remain unavailable and are never converted to zero."
+  },
+  "sourceDatasets": [
+    {
+      "id": "crwv-memory-2026-08-29-v2",
+      "version": "1.1.0",
+      "url": "https://ahasignals.com/data/filing-delta/coreweave/releases/crwv-memory-2026-08-29-v2.json",
+      "purpose": "Fourteen matched CoreWeave facts with first-reported and later-comparative source vintages."
+    },
+    {
+      "id": "ai-infrastructure-cross-section-2026-08-31-v1",
+      "version": "1.0.0",
+      "url": "https://ahasignals.com/data/filing-delta/cross-section/releases/ai-infrastructure-cross-section-2026-08-31-v1.json",
+      "purpose": "Preliminary six-issuer benchmark state before the Super Micro completed filing."
+    },
+    {
+      "id": "ai-infrastructure-cross-section-2026-09-01-v2",
+      "version": "2.0.0",
+      "url": "https://ahasignals.com/data/filing-delta/cross-section/releases/ai-infrastructure-cross-section-2026-09-01-v2.json",
+      "purpose": "Filed six-issuer benchmark state and role-matched fiscal-period evidence."
+    },
+    {
+      "id": "ai-infrastructure-peer-pair-evidence-note-2026-q2-v1",
+      "version": "1.0.0",
+      "doi": "10.5281/zenodo.22239714",
+      "url": "https://doi.org/10.5281/zenodo.22239714",
+      "purpose": "Permanently archived source cross-section and citation anchor."
+    }
+  ],
+  "decisionCases": [
+    {
+      "caseId": "AS-PIT-001",
+      "title": "Later comparative value must not overwrite the first-reported value",
+      "failureMode": "later-comparative-backfill",
+      "question": "Which CoreWeave Q2 2025 revenue value was knowable at the first tradable daily decision time after its August 2025 filing?",
+      "decisionTime": "2025-08-13T13:30:00.000Z",
+      "input": {
+        "issuerId": "coreweave",
+        "ticker": "CRWV",
+        "metricId": "revenue-2025-04-01-2025-06-30",
+        "periodStart": "2025-04-01",
+        "periodEnd": "2025-06-30"
+      },
+      "expected": {
+        "observationId": "crwv:revenue-2025-04-01-2025-06-30:v1",
+        "value": 1212788000,
+        "acceptedAt": "2025-08-12T22:18:48.000Z",
+        "accession": "0001769628-25-000041"
+      },
+      "forbiddenFuture": {
+        "observationId": "crwv:revenue-2025-04-01-2025-06-30:v2",
+        "value": 1212000000,
+        "acceptedAt": "2026-08-11T23:24:42.000Z",
+        "accession": "0001769628-26-000366"
+      },
+      "passRule": "Select the latest source vintage whose SEC acceptance timestamp is on or before the decision time. The August 2026 comparative is excluded."
+    },
+    {
+      "caseId": "AS-PIT-002",
+      "title": "A later sign change must remain invisible to the earlier backtest",
+      "failureMode": "later-presentation-sign-flip",
+      "question": "Does a 2025 decision retain the positive first-reported other-investing value instead of importing the negative 2026 comparative?",
+      "decisionTime": "2025-08-13T13:30:00.000Z",
+      "input": {
+        "issuerId": "coreweave",
+        "ticker": "CRWV",
+        "metricId": "other-investing-h1-2025",
+        "periodStart": "2025-01-01",
+        "periodEnd": "2025-06-30"
+      },
+      "expected": {
+        "observationId": "crwv:other-investing-h1-2025:v1",
+        "value": 26109000,
+        "sign": 1,
+        "acceptedAt": "2025-08-12T22:18:48Z",
+        "accession": "0001769628-25-000041"
+      },
+      "forbiddenFuture": {
+        "observationId": "crwv:other-investing-h1-2025:v2",
+        "value": -6000000,
+        "sign": -1,
+        "acceptedAt": "2026-08-11T23:24:42Z",
+        "accession": "0001769628-26-000366"
+      },
+      "passRule": "The earlier positive value remains active until the later filing is accepted; a sign flip in a later comparative cannot be backfilled."
+    },
+    {
+      "caseId": "AS-PIT-003",
+      "title": "Preliminary evidence must not be treated as a completed filing",
+      "failureMode": "preliminary-to-filed-eligibility",
+      "question": "Does the dataset preserve Super Micro as preliminary and outside the primary matrix before the completed Form 10-K?",
+      "decisionTime": "2026-08-29T00:00:00.000Z",
+      "input": {
+        "issuerId": "super-micro",
+        "ticker": "SMCI",
+        "metricId": "issuer-eligibility"
+      },
+      "expected": {
+        "sourceStatus": "preliminary",
+        "primaryMatrixEligible": false,
+        "accession": "0001375365-26-000021",
+        "releaseId": "ai-infrastructure-cross-section-2026-08-31-v1"
+      },
+      "laterState": {
+        "sourceStatus": "filed",
+        "primaryMatrixEligible": true,
+        "accession": "0001375365-26-000022",
+        "acceptedAt": "2026-08-31T14:21:23.000Z",
+        "releaseId": "ai-infrastructure-cross-section-2026-09-01-v2"
+      },
+      "passRule": "Before the completed filing, retain the preliminary source status and exclusion from the primary filed-company matrix."
+    },
+    {
+      "caseId": "AS-PIT-004",
+      "title": "Unchanged values must still preserve evidence and tier changes",
+      "failureMode": "source-upgrade-without-value-change",
+      "question": "Can the pipeline distinguish an unchanged Super Micro revenue-growth value from the stronger evidence path that supports it later?",
+      "decisionTime": "2026-09-01T00:00:00.000Z",
+      "input": {
+        "issuerId": "super-micro",
+        "ticker": "SMCI",
+        "metricId": "revenueGrowth"
+      },
+      "expected": {
+        "valueChanged": false,
+        "priorValue": 0.931552702482286,
+        "laterValue": 0.931552702482286,
+        "priorComparabilityTier": "C",
+        "laterComparabilityTier": "A",
+        "evidenceChanged": true
+      },
+      "passRule": "Report the evidence and comparability upgrade even when the derived numerical value remains unchanged."
+    },
+    {
+      "caseId": "AS-PIT-005",
+      "title": "Role-matched issuers must not be presented as a synchronized calendar-quarter rank",
+      "failureMode": "fiscal-period-misalignment",
+      "question": "Does the pipeline keep different fiscal period ends visible before comparing NVIDIA and AMD?",
+      "decisionTime": "2026-09-01T00:00:00.000Z",
+      "input": {
+        "pairId": "compute",
+        "tickers": [
+          "NVDA",
+          "AMD"
+        ]
+      },
+      "expected": {
+        "periodEnds": [
+          {
+            "ticker": "NVDA",
+            "fiscalPeriod": "FY2027 Q2",
+            "periodEnded": "2026-07-26"
+          },
+          {
+            "ticker": "AMD",
+            "fiscalPeriod": "FY2026 Q2",
+            "periodEnded": "2026-06-27"
+          }
+        ],
+        "strictSynchronizedRankingAllowed": false,
+        "comparisonUse": "role-matched descriptive comparison"
+      },
+      "passRule": "Preserve both fiscal period ends and reject a synchronized calendar-quarter ranking when the dates differ."
+    }
+  ],
+  "baselineReport": {
+    "schemaVersion": "1.0.0",
+    "runId": "as-pit-benchmark-v1-baseline-2026-09-03",
+    "benchmarkId": "ahasignals-pit-backtest-validation-benchmark-v1",
+    "benchmarkVersion": "1.0.0",
+    "generatedAt": "2026-09-03T00:00:00.000Z",
+    "implementation": "AhaSignals reference as-of selector",
+    "result": "pass",
+    "summary": {
+      "caseCount": 5,
+      "passedCaseCount": 5,
+      "failedCaseCount": 0,
+      "issuerCount": 7,
+      "coreWeaveVintageObservationCount": 28,
+      "coreWeaveRevisionSeriesCount": 14,
+      "futureVintageValuesBlockedAtFirstDecision": 14,
+      "roundingCompatibleCount": 10,
+      "presentationChangeCount": 4,
+      "signFlipCount": 1,
+      "crossSectionMetricCellCount": 24,
+      "crossSectionSourceUpgradeCount": 4,
+      "crossSectionNewlyAdmittedIssuerCount": 1
+    },
+    "caseResults": [
+      {
+        "caseId": "AS-PIT-001",
+        "status": "pass",
+        "selectedObservationId": "crwv:revenue-2025-04-01-2025-06-30:v1",
+        "expectedObservationId": "crwv:revenue-2025-04-01-2025-06-30:v1",
+        "futureObservationBlocked": true
+      },
+      {
+        "caseId": "AS-PIT-002",
+        "status": "pass",
+        "selectedObservationId": "crwv:other-investing-h1-2025:v1",
+        "expectedObservationId": "crwv:other-investing-h1-2025:v1",
+        "futureObservationBlocked": true
+      },
+      {
+        "caseId": "AS-PIT-003",
+        "status": "pass",
+        "selectedObservationId": null,
+        "expectedObservationId": null,
+        "futureObservationBlocked": true
+      },
+      {
+        "caseId": "AS-PIT-004",
+        "status": "pass",
+        "selectedObservationId": null,
+        "expectedObservationId": null,
+        "futureObservationBlocked": true
+      },
+      {
+        "caseId": "AS-PIT-005",
+        "status": "pass",
+        "selectedObservationId": null,
+        "expectedObservationId": null,
+        "futureObservationBlocked": true
+      }
+    ],
+    "performanceLayer": {
+      "status": "not-evaluated",
+      "reason": "The benchmark does not bundle market prices, corporate-action adjustments or return series. A compliant external price adapter is required before IC, turnover, return or drawdown differences can be calculated."
+    },
+    "reproducibility": {
+      "deterministic": true,
+      "oldReleasesRemainAddressable": true,
+      "missingValuesAreNeverCoercedToZero": true
+    }
+  },
+  "limitations": [
+    "Version 1 tests data availability, source-vintage selection, evidence transitions and fiscal-period visibility. It does not test whether a feature earns an investment return.",
+    "The benchmark covers seven issuers and five known failure modes. Passing it does not establish that a pipeline is free from every form of look-ahead, survivorship or execution bias.",
+    "The daily tradability timestamps are explicit fixtures for the included filing dates, not a complete U.S. exchange calendar service.",
+    "SEC acceptance timestamps establish public availability; they do not establish when every market participant processed the filing.",
+    "Company names and symbols identify source filers only. AhaSignals is independent and is not affiliated with or endorsed by those issuers or the SEC.",
+    "The benchmark is research-only and is not investment, trading, legal, accounting or tax advice."
+  ],
+  "citation": {
+    "text": "AhaSignals. “AhaSignals Point-in-Time Backtest Validation Benchmark.” Version 1.0.0, published 2026-09-03. https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/",
+    "bibtexKey": "AhaSignals2026PITBacktestValidationBenchmark"
+  },
+  "integrity": {
+    "algorithm": "SHA-256",
+    "canonicalization": "UTF-8 JSON.stringify(payload), preserving the published object key and array order, without whitespace.",
+    "payloadSha256": "b22aa620b67838f3fb21cdaf4a947c69d93b7e7ad71e5b653e18855625a5e5a4"
+  }
+}

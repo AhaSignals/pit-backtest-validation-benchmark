@@ -1,0 +1,140 @@
+{
+  "benchmarkId": "ahasignals-pit-backtest-validation-benchmark-v1",
+  "benchmarkVersion": "1.0.0",
+  "cases": [
+    {
+      "caseId": "AS-PIT-001",
+      "title": "Later comparative value must not overwrite the first-reported value",
+      "failureMode": "later-comparative-backfill",
+      "question": "Which CoreWeave Q2 2025 revenue value was knowable at the first tradable daily decision time after its August 2025 filing?",
+      "decisionTime": "2025-08-13T13:30:00.000Z",
+      "input": {
+        "issuerId": "coreweave",
+        "ticker": "CRWV",
+        "metricId": "revenue-2025-04-01-2025-06-30",
+        "periodStart": "2025-04-01",
+        "periodEnd": "2025-06-30"
+      },
+      "expected": {
+        "observationId": "crwv:revenue-2025-04-01-2025-06-30:v1",
+        "value": 1212788000,
+        "acceptedAt": "2025-08-12T22:18:48.000Z",
+        "accession": "0001769628-25-000041"
+      },
+      "forbiddenFuture": {
+        "observationId": "crwv:revenue-2025-04-01-2025-06-30:v2",
+        "value": 1212000000,
+        "acceptedAt": "2026-08-11T23:24:42.000Z",
+        "accession": "0001769628-26-000366"
+      },
+      "passRule": "Select the latest source vintage whose SEC acceptance timestamp is on or before the decision time. The August 2026 comparative is excluded."
+    },
+    {
+      "caseId": "AS-PIT-002",
+      "title": "A later sign change must remain invisible to the earlier backtest",
+      "failureMode": "later-presentation-sign-flip",
+      "question": "Does a 2025 decision retain the positive first-reported other-investing value instead of importing the negative 2026 comparative?",
+      "decisionTime": "2025-08-13T13:30:00.000Z",
+      "input": {
+        "issuerId": "coreweave",
+        "ticker": "CRWV",
+        "metricId": "other-investing-h1-2025",
+        "periodStart": "2025-01-01",
+        "periodEnd": "2025-06-30"
+      },
+      "expected": {
+        "observationId": "crwv:other-investing-h1-2025:v1",
+        "value": 26109000,
+        "sign": 1,
+        "acceptedAt": "2025-08-12T22:18:48Z",
+        "accession": "0001769628-25-000041"
+      },
+      "forbiddenFuture": {
+        "observationId": "crwv:other-investing-h1-2025:v2",
+        "value": -6000000,
+        "sign": -1,
+        "acceptedAt": "2026-08-11T23:24:42Z",
+        "accession": "0001769628-26-000366"
+      },
+      "passRule": "The earlier positive value remains active until the later filing is accepted; a sign flip in a later comparative cannot be backfilled."
+    },
+    {
+      "caseId": "AS-PIT-003",
+      "title": "Preliminary evidence must not be treated as a completed filing",
+      "failureMode": "preliminary-to-filed-eligibility",
+      "question": "Does the dataset preserve Super Micro as preliminary and outside the primary matrix before the completed Form 10-K?",
+      "decisionTime": "2026-08-29T00:00:00.000Z",
+      "input": {
+        "issuerId": "super-micro",
+        "ticker": "SMCI",
+        "metricId": "issuer-eligibility"
+      },
+      "expected": {
+        "sourceStatus": "preliminary",
+        "primaryMatrixEligible": false,
+        "accession": "0001375365-26-000021",
+        "releaseId": "ai-infrastructure-cross-section-2026-08-31-v1"
+      },
+      "laterState": {
+        "sourceStatus": "filed",
+        "primaryMatrixEligible": true,
+        "accession": "0001375365-26-000022",
+        "acceptedAt": "2026-08-31T14:21:23.000Z",
+        "releaseId": "ai-infrastructure-cross-section-2026-09-01-v2"
+      },
+      "passRule": "Before the completed filing, retain the preliminary source status and exclusion from the primary filed-company matrix."
+    },
+    {
+      "caseId": "AS-PIT-004",
+      "title": "Unchanged values must still preserve evidence and tier changes",
+      "failureMode": "source-upgrade-without-value-change",
+      "question": "Can the pipeline distinguish an unchanged Super Micro revenue-growth value from the stronger evidence path that supports it later?",
+      "decisionTime": "2026-09-01T00:00:00.000Z",
+      "input": {
+        "issuerId": "super-micro",
+        "ticker": "SMCI",
+        "metricId": "revenueGrowth"
+      },
+      "expected": {
+        "valueChanged": false,
+        "priorValue": 0.931552702482286,
+        "laterValue": 0.931552702482286,
+        "priorComparabilityTier": "C",
+        "laterComparabilityTier": "A",
+        "evidenceChanged": true
+      },
+      "passRule": "Report the evidence and comparability upgrade even when the derived numerical value remains unchanged."
+    },
+    {
+      "caseId": "AS-PIT-005",
+      "title": "Role-matched issuers must not be presented as a synchronized calendar-quarter rank",
+      "failureMode": "fiscal-period-misalignment",
+      "question": "Does the pipeline keep different fiscal period ends visible before comparing NVIDIA and AMD?",
+      "decisionTime": "2026-09-01T00:00:00.000Z",
+      "input": {
+        "pairId": "compute",
+        "tickers": [
+          "NVDA",
+          "AMD"
+        ]
+      },
+      "expected": {
+        "periodEnds": [
+          {
+            "ticker": "NVDA",
+            "fiscalPeriod": "FY2027 Q2",
+            "periodEnded": "2026-07-26"
+          },
+          {
+            "ticker": "AMD",
+            "fiscalPeriod": "FY2026 Q2",
+            "periodEnded": "2026-06-27"
+          }
+        ],
+        "strictSynchronizedRankingAllowed": false,
+        "comparisonUse": "role-matched descriptive comparison"
+      },
+      "passRule": "Preserve both fiscal period ends and reject a synchronized calendar-quarter ranking when the dates differ."
+    }
+  ]
+}

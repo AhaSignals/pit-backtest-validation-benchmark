@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahasignals.com/data/benchmarks/pit-backtest-validation/v1/price-adapter-schema.json",
+  "title": "AhaSignals PIT Benchmark External Price Adapter",
+  "description": "Optional user-supplied daily price observations. Market data is not bundled with the benchmark.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "adapterId",
+    "source",
+    "licenseOrEntitlement",
+    "timezone",
+    "adjustmentPolicy",
+    "observations"
+  ],
+  "properties": {
+    "adapterId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "licenseOrEntitlement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timezone": {
+      "const": "America/New_York"
+    },
+    "adjustmentPolicy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ticker",
+          "sessionDate",
+          "open",
+          "close",
+          "currency",
+          "adjustmentFactor"
+        ],
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sessionDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "open": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "close": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "currency": {
+            "const": "USD"
+          },
+          "adjustmentFactor": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        }
+      }
+    }
+  }
+}
