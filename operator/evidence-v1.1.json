@@ -1,0 +1,66 @@
+{
+  "artifactId": "ahasignals-financial-ai-pit-integrity-operator-evidence-v1-1",
+  "benchmarkVersion": "1.1.0",
+  "assemblyPolicy": "Reviewed evidence cards transcribed from the cited SEC accessions and frozen AhaSignals source research. Retrieval receives cards accepted by the decision time; knowledge-contamination receives all cards.",
+  "cases": [
+    {
+      "caseId": "AS-PIT-001",
+      "evidence": [
+        {"factId":"crwv:revenue-2025-04-01-2025-06-30:v1","accession":"0001769628-25-000041","acceptedAt":"2025-08-12T22:18:48.000Z","form":"10-Q","filingUrl":"https://www.sec.gov/Archives/edgar/data/1769628/000176962825000041/crwv-20250630.htm","facts":{"issuer":"CoreWeave, Inc.","metric":"Revenue","periodStart":"2025-04-01","periodEnd":"2025-06-30","value":1212788000,"unit":"USD","reportedPrecision":"thousand"}},
+        {"factId":"crwv:revenue-2025-04-01-2025-06-30:v2","accession":"0001769628-26-000366","acceptedAt":"2026-08-11T23:24:42.000Z","form":"10-Q","filingUrl":"https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm","facts":{"issuer":"CoreWeave, Inc.","metric":"Revenue comparative","periodStart":"2025-04-01","periodEnd":"2025-06-30","value":1212000000,"unit":"USD","reportedPrecision":"million"}}
+      ]
+    },
+    {
+      "caseId": "AS-PIT-002",
+      "evidence": [
+        {"factId":"crwv:other-investing-h1-2025:v1","accession":"0001769628-25-000041","acceptedAt":"2025-08-12T22:18:48.000Z","form":"10-Q","filingUrl":"https://www.sec.gov/Archives/edgar/data/1769628/000176962825000041/crwv-20250630.htm","facts":{"issuer":"CoreWeave, Inc.","metric":"Other investing activities","periodStart":"2025-01-01","periodEnd":"2025-06-30","value":26109000,"unit":"USD","sign":"positive","reportedPrecision":"thousand"}},
+        {"factId":"crwv:other-investing-h1-2025:v2","accession":"0001769628-26-000366","acceptedAt":"2026-08-11T23:24:42.000Z","form":"10-Q","filingUrl":"https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm","facts":{"issuer":"CoreWeave, Inc.","metric":"Other investing activities comparative","periodStart":"2025-01-01","periodEnd":"2025-06-30","value":-6000000,"unit":"USD","sign":"negative","reportedPrecision":"million"}}
+      ]
+    },
+    {
+      "caseId": "AS-PIT-003",
+      "evidence": [
+        {"factId":"ai-infrastructure-cross-section-2026-08-31-v1","accession":"0001375365-26-000021","acceptedAt":"2026-08-11T20:06:16.000Z","form":"8-K exhibit","filingUrl":"https://www.sec.gov/Archives/edgar/data/1375365/000137536526000021/exhibit991_20260630.htm","facts":{"issuer":"Super Micro Computer, Inc.","sourceStatus":"preliminary","primaryMatrixEligible":false,"comparabilityTier":"C"}},
+        {"factId":"ai-infrastructure-cross-section-2026-09-01-v2","accession":"0001375365-26-000022","acceptedAt":"2026-08-31T14:21:23.000Z","form":"10-K","filingUrl":"https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm","facts":{"issuer":"Super Micro Computer, Inc.","sourceStatus":"filed","primaryMatrixEligible":true,"comparabilityTier":"A"}}
+      ]
+    },
+    {
+      "caseId": "AS-PIT-004",
+      "evidence": [
+        {"factId":"ai-infrastructure-cross-section-2026-08-31-v1","accession":"0001375365-26-000021","acceptedAt":"2026-08-11T20:06:16.000Z","form":"8-K exhibit","filingUrl":"https://www.sec.gov/Archives/edgar/data/1375365/000137536526000021/exhibit991_20260630.htm","facts":{"issuer":"Super Micro Computer, Inc.","comparisonValueFingerprint":"smci-fy2026-preliminary-stable-value","sourceStatus":"preliminary","primaryMatrixEligible":false,"comparabilityTier":"C"}},
+        {"factId":"ai-infrastructure-cross-section-2026-09-01-v2","accession":"0001375365-26-000022","acceptedAt":"2026-08-31T14:21:23.000Z","form":"10-K","filingUrl":"https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm","facts":{"issuer":"Super Micro Computer, Inc.","comparisonValueFingerprint":"smci-fy2026-preliminary-stable-value","sourceStatus":"filed","primaryMatrixEligible":true,"comparabilityTier":"A"}}
+      ]
+    },
+    {
+      "caseId": "AS-PIT-005",
+      "evidence": [
+        {"factId":"nvidia:FY2027-Q2","accession":"0001045810-26-000075","acceptedAt":"2026-08-26T20:36:00.000Z","form":"10-Q","filingUrl":"https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm","facts":{"issuer":"NVIDIA Corporation","ticker":"NVDA","fiscalPeriod":"FY2027 Q2","periodEnded":"2026-07-26"}},
+        {"factId":"amd:FY2026-Q2","accession":"0000002488-26-000123","acceptedAt":"2026-08-04T21:40:01.000Z","form":"10-Q","filingUrl":"https://www.sec.gov/Archives/edgar/data/2488/000000248826000123/amd-20260627.htm","facts":{"issuer":"Advanced Micro Devices, Inc.","ticker":"AMD","fiscalPeriod":"FY2026 Q2","periodEnded":"2026-06-27"}}
+      ]
+    },
+    {
+      "caseId": "AS-PIT-006",
+      "evidence": [
+        {"factId":"BBAI-RS-004","accession":"0001628280-23-010166","acceptedAt":"2023-03-31T20:18:35.000Z","form":"10-K","filingUrl":"https://www.sec.gov/Archives/edgar/data/1836981/000162828023010166/bbai-20221231.htm","facts":{"issuer":"BigBear.ai Holdings, Inc.","metric":"Net loss","periodStart":"2022-01-01","periodEnd":"2022-12-31","value":-121674000,"unit":"USD","knowledgeState":"previously-reported"}},
+        {"factId":"BBAI-RS-004","accession":"0001193125-25-056086","acceptedAt":"2025-03-18T10:04:50.000Z","form":"8-K","filingUrl":"https://www.sec.gov/Archives/edgar/data/1836981/000119312525056086/d925610d8k.htm","facts":{"issuer":"BigBear.ai Holdings, Inc.","event":"non-reliance","affectedMetric":"Net loss","affectedPeriodEnd":"2022-12-31","knowledgeState":"withdrawn-from-reliance"}},
+        {"factId":"BBAI-RS-004","accession":"0001628280-25-014752","acceptedAt":"2025-03-25T20:49:29.000Z","form":"10-K","filingUrl":"https://www.sec.gov/Archives/edgar/data/1836981/000162828025014752/bbai-20241231.htm","facts":{"issuer":"BigBear.ai Holdings, Inc.","metric":"Net loss","periodStart":"2022-01-01","periodEnd":"2022-12-31","value":-111367000,"unit":"USD","knowledgeState":"restated"}}
+      ]
+    },
+    {
+      "caseId": "AS-PIT-007",
+      "evidence": [
+        {"factId":"BBAI-RS-004","accession":"0001628280-23-010166","acceptedAt":"2023-03-31T20:18:35.000Z","form":"10-K","filingUrl":"https://www.sec.gov/Archives/edgar/data/1836981/000162828023010166/bbai-20221231.htm","facts":{"issuer":"BigBear.ai Holdings, Inc.","metric":"Net loss","periodStart":"2022-01-01","periodEnd":"2022-12-31","value":-121674000,"unit":"USD","knowledgeState":"previously-reported"}},
+        {"factId":"BBAI-RS-004","accession":"0001193125-25-056086","acceptedAt":"2025-03-18T10:04:50.000Z","form":"8-K","filingUrl":"https://www.sec.gov/Archives/edgar/data/1836981/000119312525056086/d925610d8k.htm","facts":{"issuer":"BigBear.ai Holdings, Inc.","event":"non-reliance","affectedMetric":"Net loss","affectedPeriodEnd":"2022-12-31","knowledgeState":"withdrawn-from-reliance"}},
+        {"factId":"BBAI-RS-004","accession":"0001628280-25-014752","acceptedAt":"2025-03-25T20:49:29.000Z","form":"10-K","filingUrl":"https://www.sec.gov/Archives/edgar/data/1836981/000162828025014752/bbai-20241231.htm","facts":{"issuer":"BigBear.ai Holdings, Inc.","metric":"Net loss","periodStart":"2022-01-01","periodEnd":"2022-12-31","value":-111367000,"unit":"USD","knowledgeState":"restated"}}
+      ]
+    },
+    {
+      "caseId": "AS-PIT-008",
+      "evidence": [
+        {"factId":"BBAI-RS-004","accession":"0001628280-23-010166","acceptedAt":"2023-03-31T20:18:35.000Z","form":"10-K","filingUrl":"https://www.sec.gov/Archives/edgar/data/1836981/000162828023010166/bbai-20221231.htm","facts":{"issuer":"BigBear.ai Holdings, Inc.","metric":"Net loss","periodStart":"2022-01-01","periodEnd":"2022-12-31","value":-121674000,"unit":"USD","knowledgeState":"previously-reported"}},
+        {"factId":"BBAI-RS-004","accession":"0001193125-25-056086","acceptedAt":"2025-03-18T10:04:50.000Z","form":"8-K","filingUrl":"https://www.sec.gov/Archives/edgar/data/1836981/000119312525056086/d925610d8k.htm","facts":{"issuer":"BigBear.ai Holdings, Inc.","event":"non-reliance","affectedMetric":"Net loss","affectedPeriodEnd":"2022-12-31","knowledgeState":"withdrawn-from-reliance"}},
+        {"factId":"BBAI-RS-004","accession":"0001628280-25-014752","acceptedAt":"2025-03-25T20:49:29.000Z","form":"10-K","filingUrl":"https://www.sec.gov/Archives/edgar/data/1836981/000162828025014752/bbai-20241231.htm","facts":{"issuer":"BigBear.ai Holdings, Inc.","metric":"Net loss","periodStart":"2022-01-01","periodEnd":"2022-12-31","value":-111367000,"unit":"USD","knowledgeState":"restated"}}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "runId": "openai-gpt-5.6-sol-2026-09-04-pilot-03",
+  "resultClass": "operator-run",
+  "operator": "AhaSignals",
+  "benchmark": {
+    "id": "ahasignals-financial-ai-pit-integrity-benchmark-v1-1",
+    "version": "1.1.0",
+    "versionDoi": "10.5281/zenodo.22289017",
+    "frozenChecksums": "data/v1.1/checksums.sha256"
+  },
+  "model": {
+    "provider": "OpenAI",
+    "requestedModel": "gpt-5.6-sol",
+    "resolvedProviderSnapshot": null,
+    "interface": "Codex CLI",
+    "clientVersion": "codex-cli 0.151.0-alpha.7.2",
+    "reasoningEffort": "high",
+    "temperature": null,
+    "seed": null
+  },
+  "execution": {
+    "startedAt": "2026-09-04T12:37:23.035Z",
+    "completedAt": "2026-09-04T12:40:29.686Z",
+    "promptAssemblyVersion": "closed-evidence-v1",
+    "evidencePackage": "operator/evidence-v1.1.json",
+    "evidencePackageSha256": "fc1904853c1d1ca3de0d64613b17e9a07f6d6cbb10acb97422645d343d976127",
+    "contextIsolation": "one fresh ephemeral context per case-track pair",
+    "networkPolicy": "model instructed not to browse; frozen evidence cards only",
+    "filesystemPolicy": "read-only empty temporary directory",
+    "retryPolicy": "one attempt per prompt; zero retries",
+    "manualAnswerEdits": false,
+    "responseCount": 16,
+    "toolUseCount": 0
+  },
+  "artifacts": {
+    "prompts.jsonl": "f518717ced1f2b74614c0597ce4f3c57c668f4d9f327d0cfa92bf08705cfe583",
+    "raw-events.jsonl": "2b8e915e6358a57f3e67963a6f7c8662df7d989fb5dbb089290f7fded60af8f4",
+    "raw-responses.jsonl": "5e82fa701603fe7d1d7d18849619bb3890b912329606550ced8b28b27b815987",
+    "submission.jsonl": "8e948633429452f0c6c2b4f3e0ff778e6edce383a475cd64fe2cb673b52c2089",
+    "score-report.json": "39a6f79bdd0a79838dab308cdb768fb6b8b9316f4821ef26358fb42b29dfda2d"
+  },
+  "score": {
+    "responseCount": 16,
+    "perfectResponseCount": 16,
+    "temporalIntegrityFailureCount": 0,
+    "meanScore": 100
+  },
+  "result": "pass",
+  "boundary": "AhaSignals-operated pilot result. It is not an independent submission, a general model ranking, an investment-performance result or an assurance engagement."
+}

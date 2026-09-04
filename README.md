@@ -54,6 +54,16 @@ npm run score -- path/to/submission.jsonl
 
 The bundled `reference-submission.jsonl` is an oracle fixture for testing the scorer. It is not a result for a third-party model or agent.
 
+## Public results
+
+Results are append-only objects separate from the frozen benchmark. Read [`RESULTS-SPEC.md`](RESULTS-SPEC.md) before interpreting or submitting a run.
+
+- `results/calibration/` records the reference and adversarial scorer fixtures. They are not model results.
+- `results/operator-run/` records AhaSignals-operated runs with raw prompts, raw client events, unedited responses, deterministic scores and checksums.
+- `results/independent/` is reserved for third-party submissions.
+
+Operator runs use one fresh context per case-track prompt and the reviewed, checksum-addressable evidence cards in `operator/evidence-v1.1.json`. They are reported separately from independent submissions and are not a general model leaderboard.
+
 ## Scoring
 
 | Dimension | Weight |
@@ -84,6 +94,17 @@ scripts/
   verify.mjs               # verifies frozen v1.0
   verify-v1.1.mjs          # verifies v1.1 and v1.0 byte identity
   score-submission.mjs     # deterministic v1.1 scorer
+  verify-results.mjs       # verifies calibration and public result artifacts
+  run-codex-operator.mjs   # isolated Codex CLI operator runner
+operator/
+  evidence-v1.1.json       # reviewed closed evidence surface for operator runs
+  single-response.schema.json
+  run-manifest.schema.json
+results/
+  index.json
+  calibration/
+  operator-run/
+  independent/
 docs/
   UPDATE-PROTOCOL.md
 ```

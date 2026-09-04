@@ -1,0 +1,346 @@
+{
+  "benchmarkId": "ahasignals-financial-ai-pit-integrity-benchmark-v1-1",
+  "benchmarkVersion": "1.1.0",
+  "submission": "submission.jsonl",
+  "schemaValid": true,
+  "result": "pass",
+  "summary": {
+    "responseCount": 16,
+    "perfectResponseCount": 16,
+    "temporalIntegrityFailureCount": 0,
+    "meanScore": 100
+  },
+  "results": [
+    {
+      "caseId": "AS-PIT-001",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": [
+          "0001769628-26-000366"
+        ]
+      }
+    },
+    {
+      "caseId": "AS-PIT-001",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": []
+      }
+    },
+    {
+      "caseId": "AS-PIT-002",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": [
+          "0001769628-26-000366"
+        ]
+      }
+    },
+    {
+      "caseId": "AS-PIT-002",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": []
+      }
+    },
+    {
+      "caseId": "AS-PIT-003",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": [
+          "0001375365-26-000022"
+        ]
+      }
+    },
+    {
+      "caseId": "AS-PIT-003",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": []
+      }
+    },
+    {
+      "caseId": "AS-PIT-004",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": []
+      }
+    },
+    {
+      "caseId": "AS-PIT-004",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": []
+      }
+    },
+    {
+      "caseId": "AS-PIT-005",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": []
+      }
+    },
+    {
+      "caseId": "AS-PIT-005",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": []
+      }
+    },
+    {
+      "caseId": "AS-PIT-006",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": [
+          "0001193125-25-056086",
+          "0001628280-25-014752"
+        ]
+      }
+    },
+    {
+      "caseId": "AS-PIT-006",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": []
+      }
+    },
+    {
+      "caseId": "AS-PIT-007",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": [
+          "0001628280-25-014752"
+        ]
+      }
+    },
+    {
+      "caseId": "AS-PIT-007",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": []
+      }
+    },
+    {
+      "caseId": "AS-PIT-008",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": []
+      }
+    },
+    {
+      "caseId": "AS-PIT-008",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      },
+      "diagnostics": {
+        "citedFutureAccession": false,
+        "returnedForbiddenFutureAnswer": false,
+        "responseStatusCorrect": true,
+        "omittedKnownFutureAccessions": []
+      }
+    }
+  ]
+}

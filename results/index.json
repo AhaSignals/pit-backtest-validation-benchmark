@@ -1,0 +1,24 @@
+{
+  "registryId": "ahasignals-financial-ai-pit-integrity-results",
+  "updatedAt": "2026-09-04",
+  "benchmarkVersion": "1.1.0",
+  "benchmarkDoi": "10.5281/zenodo.22289017",
+  "calibration": "calibration/index.json",
+  "operatorRuns": [
+    {
+      "runId": "openai-gpt-5.6-sol-2026-09-04-pilot-03",
+      "path": "operator-run/openai-gpt-5.6-sol-2026-09-04-pilot-03/run-manifest.json",
+      "operator": "AhaSignals",
+      "provider": "OpenAI",
+      "requestedModel": "gpt-5.6-sol",
+      "completedAt": "2026-09-04T12:40:29.686Z",
+      "result": "pass",
+      "perfectResponseCount": 16,
+      "responseCount": 16,
+      "temporalIntegrityFailureCount": 0,
+      "meanScore": 100
+    }
+  ],
+  "independentRuns": [],
+  "boundary": "Operator runs and independent submissions are reported separately. Calibration fixtures are not model results."
+}

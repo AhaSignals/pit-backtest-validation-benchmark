@@ -5,9 +5,11 @@
   "type": "module",
   "description": "Open conformance cases for testing point-in-time integrity in financial AI and SEC-filing backtests.",
   "scripts": {
-    "test": "node scripts/verify.mjs && node scripts/verify-v1.1.mjs && node scripts/score-submission.mjs",
+    "test": "node scripts/verify.mjs && node scripts/verify-v1.1.mjs && node scripts/verify-operator-evidence.mjs && node scripts/score-submission.mjs && node scripts/verify-results.mjs",
     "verify": "node scripts/verify.mjs && node scripts/verify-v1.1.mjs",
-    "score": "node scripts/score-submission.mjs"
+    "score": "node scripts/score-submission.mjs",
+    "verify:results": "node scripts/verify-results.mjs",
+    "run:operator": "node scripts/run-codex-operator.mjs"
   },
   "engines": {
     "node": ">=18"

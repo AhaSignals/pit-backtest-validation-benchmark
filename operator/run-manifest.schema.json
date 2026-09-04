@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AhaSignals Financial AI PIT operator-run manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["runId","resultClass","operator","benchmark","model","execution","artifacts","score","result","boundary"],
+  "properties": {
+    "runId": {"type":"string","pattern":"^[a-z0-9][a-z0-9._-]+$"},
+    "resultClass": {"const":"operator-run"},
+    "operator": {"type":"string","minLength":1},
+    "benchmark": {"type":"object"},
+    "model": {"type":"object"},
+    "execution": {"type":"object"},
+    "artifacts": {"type":"object"},
+    "score": {"type":"object"},
+    "result": {"enum":["pass","fail"]},
+    "boundary": {"type":"string","minLength":40}
+  }
+}

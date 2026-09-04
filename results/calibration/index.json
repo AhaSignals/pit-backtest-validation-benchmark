@@ -1,0 +1,9 @@
+{
+  "resultClass": "calibration",
+  "benchmarkVersion": "1.1.0",
+  "notice": "Deterministic scorer fixtures only. These entries are not results for a model, provider or agent.",
+  "entries": [
+    {"id":"reference-oracle","submission":"../../data/v1.1/reference-submission.jsonl","expectedResult":"pass","expectedTemporalIntegrityFailures":0},
+    {"id":"future-leak-adversarial","submission":"../../data/v1.1/adversarial-submission.jsonl","expectedResult":"fail","expectedTemporalIntegrityFailures":1}
+  ]
+}
