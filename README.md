@@ -1,27 +1,43 @@
-# AhaSignals Point-in-Time Backtest Validation Benchmark
+# AhaSignals Financial AI Point-in-Time Integrity Benchmark
 
-[![Version](https://img.shields.io/badge/version-1.0.0-087653)](https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/)
-[![Reference cases](https://img.shields.io/badge/reference_cases-5%2F5_pass-087653)](data/v1/baseline-report.json)
-[![Benchmark DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22279744.svg)](https://doi.org/10.5281/zenodo.22279744)
-[![Source dataset DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22239714.svg)](https://doi.org/10.5281/zenodo.22239714)
+[![Version](https://img.shields.io/badge/version-1.1.0--rc-087653)](https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/)
+[![Reference responses](https://img.shields.io/badge/reference_responses-16%2F16_pass-087653)](data/v1.1/baseline-report.json)
+[![Series DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22279743.svg)](https://doi.org/10.5281/zenodo.22279743)
+[![Frozen v1.0 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22279744.svg)](https://doi.org/10.5281/zenodo.22279744)
 
-Could a historical backtest have known and used the selected filing value at the stated decision time?
+Can a financial AI system avoid using SEC information that did not exist at the stated decision time?
 
-This repository contains five open, source-dated tests for common failures in SEC-filing backtests. Every case identifies the decision time, the expected source vintage and the later state that must remain unavailable.
+Version 1.1 is an open, deterministic conformance suite for testing whether a financial AI system respects SEC acceptance-time cutoffs, cites the controlling accession and abstains when an issuer has withdrawn reliance but no restated value is yet public.
 
-## What version 1 tests
+## What changed in v1.1
+
+The five v1.0 cases remain frozen. Version 1.1 adds a reviewed BigBear.ai restatement sequence and runs all eight cases in two tracks:
+
+| Track | Question |
+| --- | --- |
+| Evidence-restricted retrieval | Can the system select and cite the admissible item from the supplied evidence bundle? |
+| Knowledge-contamination control | Can the system keep broader or later knowledge outside an explicitly historical answer? |
+
+The new cases preserve three distinct states for one issuer-labelled restatement cell:
+
+1. **Previously reported** — use the prior value before the non-reliance notice.
+2. **Non-reliance window** — abstain after the 8-K and before the restated Form 10-K.
+3. **Restated** — use the revised value only after the restated filing is accepted.
+
+## Case registry
 
 | Case | Failure mode | Reference evidence |
 | --- | --- | --- |
-| `AS-PIT-001` | Later comparative value backfilled into an earlier decision | CoreWeave Q2 2025 revenue |
-| `AS-PIT-002` | A later comparative changes the sign of a historical value | CoreWeave H1 2025 other investing activities |
-| `AS-PIT-003` | Preliminary evidence is treated as a completed filing | Super Micro preliminary release and completed Form 10-K |
-| `AS-PIT-004` | An unchanged value hides an evidence and comparability upgrade | Super Micro cross-section transition |
-| `AS-PIT-005` | Different fiscal period ends are treated as one synchronized quarter | NVIDIA and AMD role-matched comparison |
+| `AS-PIT-001` | Later comparative imported into an earlier decision | CoreWeave Q2 2025 revenue |
+| `AS-PIT-002` | Later comparative reverses a historical sign | CoreWeave H1 2025 other investing activities |
+| `AS-PIT-003` | Preliminary evidence represented as a completed filing | Super Micro source transition |
+| `AS-PIT-004` | An unchanged value hides a provenance upgrade | Super Micro release comparison |
+| `AS-PIT-005` | Different fiscal period ends represented as synchronized | NVIDIA and AMD role-matched comparison |
+| `AS-PIT-006` | Restated value backfilled before non-reliance | BigBear.ai pre-notice state |
+| `AS-PIT-007` | Numeric answer returned during non-reliance | BigBear.ai 8-K-to-10-K quarantine interval |
+| `AS-PIT-008` | Withdrawn prior value retained after restatement | BigBear.ai restated Form 10-K |
 
-The reference fixtures contain 28 CoreWeave vintage observations across 14 matched fact identities. The linked six-issuer release comparison contains 24 metric cells, four source upgrades and one primary-matrix admission.
-
-## Run the reference verifier
+## Run the verifier and scorer
 
 Requirements: Node.js 18 or later. No package installation is required.
 
@@ -29,60 +45,64 @@ Requirements: Node.js 18 or later. No package installation is required.
 npm test
 ```
 
-The verifier checks:
+Score a conforming 16-line JSONL submission:
 
-- all five case IDs and expected answers;
-- source-vintage eligibility at the stated decision time;
-- the CoreWeave later-value and sign-flip traps;
-- the Super Micro preliminary-to-filed transition;
-- the fiscal-period mismatch rejection rule;
-- benchmark payload integrity and every frozen file checksum;
-- the explicit absence of return or Sharpe claims.
-
-## Selection rule
-
-```text
-selected vintage = latest SEC acceptance timestamp <= decision time
+```bash
+npm run score -- path/to/submission.jsonl
 ```
 
-The economic period and the public-information time are separate. A later comparative, amended filing or extraction correction creates a new version and never overwrites a frozen predecessor. Missing or ineligible observations are never converted to zero.
+The bundled `reference-submission.jsonl` is an oracle fixture for testing the scorer. It is not a result for a third-party model or agent.
+
+## Scoring
+
+| Dimension | Weight |
+| --- | ---: |
+| Temporal admissibility | 40 |
+| Accession citation | 25 |
+| Answer accuracy | 20 |
+| Abstention discipline | 10 |
+| Evidence completeness | 5 |
+
+Any forbidden future accession, forbidden future answer or incorrect response status is a **temporal-integrity failure**, regardless of aggregate points.
 
 ## Repository layout
 
 ```text
-data/v1/
+data/v1/                   # immutable version 1.0.0
+data/v1.1/                 # version 1.1.0 release candidate
   benchmark.json
-  observation-vintages.csv
   decision-cases.json
+  prompts.jsonl
+  reference-submission.jsonl
+  adversarial-submission.jsonl
   baseline-report.json
   schema.json
-  price-adapter-schema.json
+  submission-schema.json
   checksums.sha256
 scripts/
-  verify.mjs
+  verify.mjs               # verifies frozen v1.0
+  verify-v1.1.mjs          # verifies v1.1 and v1.0 byte identity
+  score-submission.mjs     # deterministic v1.1 scorer
 docs/
   UPDATE-PROTOCOL.md
 ```
 
-## What passing version 1 does not prove
+`adversarial-submission.jsonl` differs from the reference fixture in one deliberately contaminated response: it imports BigBear.ai's later restated value into the non-reliance interval. The verifier requires the scorer to reject that submission with a temporal-integrity failure.
 
-This is a data-integrity test suite. It does not establish factor alpha, information coefficient, portfolio return, Sharpe ratio or drawdown. Passing five known cases does not establish that a pipeline is free from every form of look-ahead, survivorship or execution bias.
-
-Market prices and corporate-action adjustments are not bundled. `price-adapter-schema.json` allows a researcher to connect data they are licensed to use without changing the frozen filing fixtures.
-
-## Research and citation
+## Research objects
 
 - Canonical explanation: https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/
+- Benchmark series DOI: https://doi.org/10.5281/zenodo.22279743
 - Frozen version 1.0.0 DOI: https://doi.org/10.5281/zenodo.22279744
-- All-versions concept DOI: https://doi.org/10.5281/zenodo.22279743
-- Underlying source cross-section DOI: https://doi.org/10.5281/zenodo.22239714
-- Citation metadata: [`CITATION.cff`](CITATION.cff)
-- Release protocol: [`docs/UPDATE-PROTOCOL.md`](docs/UPDATE-PROTOCOL.md)
+- CoreWeave case-study DOI: https://doi.org/10.5281/zenodo.22288550
+- BigBear.ai Revision Ledger DOI: https://doi.org/10.5281/zenodo.22288546
 
-Cite the version DOI for results tied to the frozen 1.0.0 files. Cite the concept DOI when referring to the benchmark series across versions.
+Version 1.1 remains a release candidate until its version DOI is assigned. The evidence, expected answers and score weights are frozen by checksum before that metadata-only step.
 
-## Rights and boundary
+## Interpretation boundary
 
-The reference verifier is licensed under the MIT License. The original benchmark compilation, fixtures and documentation are licensed under CC BY 4.0; underlying factual information remains attributable to the cited SEC filings and issuers.
+This suite evaluates data-time integrity. It does not establish factor alpha, information coefficient, portfolio return, Sharpe ratio, drawdown or general model intelligence. Public expected answers make the benchmark reproducible, but do not measure resistance to benchmark memorization.
+
+The reference scorer is licensed under the MIT License. The original benchmark compilation, fixtures and documentation are licensed under CC BY 4.0; underlying factual information remains attributable to the cited SEC filings and issuers.
 
 AhaSignals is an independent research publisher. Company names and ticker symbols identify SEC filers and source evidence only. AhaSignals is not affiliated with or endorsed by the referenced issuers or the SEC. Research and education only; not investment, trading, legal, accounting or tax advice.

@@ -1,0 +1,491 @@
+{
+  "benchmarkId": "ahasignals-financial-ai-pit-integrity-benchmark-v1-1",
+  "benchmarkVersion": "1.1.0",
+  "cases": [
+    {
+      "caseId": "AS-PIT-001",
+      "compatibility": {
+        "introducedIn": "1.0.0",
+        "sourceCaseId": "AS-PIT-001"
+      },
+      "title": "Do not import a later CoreWeave comparative into an earlier decision",
+      "issuer": {
+        "company": "CoreWeave, Inc.",
+        "ticker": "CRWV",
+        "cik": "0001769628"
+      },
+      "failureMode": "later-comparative-backfill",
+      "decisionTime": "2025-08-13T13:30:00.000Z",
+      "task": "Return the CoreWeave Q2 2025 revenue value available at the decision time and cite the SEC accession that made it public.",
+      "expected": {
+        "responseStatus": "answered",
+        "answer": 1212788000,
+        "answerUnit": "USD",
+        "citedAccessions": [
+          "0001769628-25-000041"
+        ],
+        "evidenceIds": [
+          "crwv:revenue-2025-04-01-2025-06-30:v1"
+        ],
+        "knowledgeState": "first-reported"
+      },
+      "forbiddenFuture": {
+        "answers": [
+          1212000000
+        ],
+        "accessions": [
+          "0001769628-26-000366"
+        ],
+        "evidenceIds": [
+          "crwv:revenue-2025-04-01-2025-06-30:v2"
+        ],
+        "acceptedAt": "2026-08-11T23:24:42.000Z"
+      },
+      "sourceEvidence": [
+        {
+          "role": "eligible",
+          "accession": "0001769628-25-000041",
+          "acceptedAt": "2025-08-12T22:18:48.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962825000041/crwv-20250630.htm"
+        },
+        {
+          "role": "future-comparative",
+          "accession": "0001769628-26-000366",
+          "acceptedAt": "2026-08-11T23:24:42.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm"
+        }
+      ],
+      "abstentionRule": "Do not abstain: an eligible first-reported value exists.",
+      "passRule": "Select the latest source vintage whose SEC acceptance timestamp is on or before the decision time. The August 2026 comparative is excluded."
+    },
+    {
+      "caseId": "AS-PIT-002",
+      "compatibility": {
+        "introducedIn": "1.0.0",
+        "sourceCaseId": "AS-PIT-002"
+      },
+      "title": "Keep a later CoreWeave sign change outside the earlier information set",
+      "issuer": {
+        "company": "CoreWeave, Inc.",
+        "ticker": "CRWV",
+        "cik": "0001769628"
+      },
+      "failureMode": "later-presentation-sign-flip",
+      "decisionTime": "2025-08-13T13:30:00.000Z",
+      "task": "Return the sign of CoreWeave other investing activities available at the decision time and cite the controlling accession.",
+      "expected": {
+        "responseStatus": "answered",
+        "answer": {
+          "value": 26109000,
+          "sign": "positive"
+        },
+        "answerUnit": "USD",
+        "citedAccessions": [
+          "0001769628-25-000041"
+        ],
+        "evidenceIds": [
+          "crwv:other-investing-h1-2025:v1"
+        ],
+        "knowledgeState": "first-reported"
+      },
+      "forbiddenFuture": {
+        "answers": [
+          {
+            "value": -6000000,
+            "sign": "negative"
+          }
+        ],
+        "accessions": [
+          "0001769628-26-000366"
+        ],
+        "evidenceIds": [
+          "crwv:other-investing-h1-2025:v2"
+        ],
+        "acceptedAt": "2026-08-11T23:24:42Z"
+      },
+      "sourceEvidence": [
+        {
+          "role": "eligible",
+          "accession": "0001769628-25-000041",
+          "acceptedAt": "2025-08-12T22:18:48Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962825000041/crwv-20250630.htm"
+        },
+        {
+          "role": "future-comparative",
+          "accession": "0001769628-26-000366",
+          "acceptedAt": "2026-08-11T23:24:42Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm"
+        }
+      ],
+      "abstentionRule": "Do not abstain: an eligible first-reported value exists.",
+      "passRule": "The earlier positive value remains active until the later filing is accepted; a sign flip in a later comparative cannot be backfilled."
+    },
+    {
+      "caseId": "AS-PIT-003",
+      "compatibility": {
+        "introducedIn": "1.0.0",
+        "sourceCaseId": "AS-PIT-003"
+      },
+      "title": "Do not represent preliminary evidence as a completed filing",
+      "issuer": {
+        "company": "Super Micro Computer, Inc.",
+        "ticker": "SMCI",
+        "cik": "0001375365"
+      },
+      "failureMode": "preliminary-to-filed-eligibility",
+      "decisionTime": "2026-08-29T00:00:00.000Z",
+      "task": "Classify the issuer evidence state and primary-matrix eligibility at the decision time.",
+      "expected": {
+        "responseStatus": "answered",
+        "answer": {
+          "sourceStatus": "preliminary",
+          "primaryMatrixEligible": false
+        },
+        "answerUnit": null,
+        "citedAccessions": [
+          "0001375365-26-000021"
+        ],
+        "evidenceIds": [
+          "ai-infrastructure-cross-section-2026-08-31-v1"
+        ],
+        "knowledgeState": "preliminary"
+      },
+      "forbiddenFuture": {
+        "answers": [
+          {
+            "sourceStatus": "filed",
+            "primaryMatrixEligible": true
+          }
+        ],
+        "accessions": [
+          "0001375365-26-000022"
+        ],
+        "evidenceIds": [
+          "ai-infrastructure-cross-section-2026-09-01-v2"
+        ],
+        "acceptedAt": "2026-08-31T14:21:23.000Z"
+      },
+      "sourceEvidence": [
+        {
+          "role": "eligible-preliminary",
+          "accession": "0001375365-26-000021",
+          "acceptedAt": "2026-08-11T20:06:16.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1375365/000137536526000021/exhibit991_20260630.htm"
+        },
+        {
+          "role": "future-completed-filing",
+          "accession": "0001375365-26-000022",
+          "acceptedAt": "2026-08-31T14:21:23.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1375365/000137536526000022/smci-20260630.htm"
+        }
+      ],
+      "abstentionRule": "Do not invent completed-filing status. The correct answer is the preliminary state.",
+      "passRule": "Before the completed filing, retain the preliminary source status and exclusion from the primary filed-company matrix."
+    },
+    {
+      "caseId": "AS-PIT-004",
+      "compatibility": {
+        "introducedIn": "1.0.0",
+        "sourceCaseId": "AS-PIT-004"
+      },
+      "title": "Report a provenance upgrade even when the derived value is unchanged",
+      "issuer": {
+        "company": "Super Micro Computer, Inc.",
+        "ticker": "SMCI",
+        "cik": "0001375365"
+      },
+      "failureMode": "source-upgrade-without-value-change",
+      "decisionTime": "2026-09-01T00:00:00.000Z",
+      "task": "State whether the value and evidence tier changed between the preliminary and completed-filing releases.",
+      "expected": {
+        "responseStatus": "answered",
+        "answer": {
+          "valueChanged": false,
+          "evidenceChanged": true,
+          "priorComparabilityTier": "C",
+          "laterComparabilityTier": "A"
+        },
+        "answerUnit": null,
+        "citedAccessions": [
+          "0001375365-26-000021",
+          "0001375365-26-000022"
+        ],
+        "evidenceIds": [
+          "ai-infrastructure-cross-section-2026-08-31-v1",
+          "ai-infrastructure-cross-section-2026-09-01-v2"
+        ],
+        "knowledgeState": "filed-source-upgrade"
+      },
+      "forbiddenFuture": {
+        "answers": [],
+        "accessions": [],
+        "evidenceIds": [],
+        "acceptedAt": null
+      },
+      "sourceEvidence": [
+        {
+          "role": "prior-preliminary",
+          "accession": "0001375365-26-000021",
+          "acceptedAt": "2026-08-11T20:06:16.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1375365/000137536526000021/exhibit991_20260630.htm"
+        },
+        {
+          "role": "completed-filing",
+          "accession": "0001375365-26-000022",
+          "acceptedAt": "2026-08-31T14:21:23.000Z",
+          "url": "https://ahasignals.com/data/filing-delta/cross-section/releases/ai-infrastructure-cross-section-2026-09-01-v2.json"
+        }
+      ],
+      "abstentionRule": "Do not abstain: both evidence states are public by the decision time.",
+      "passRule": "Report the evidence and comparability upgrade even when the derived numerical value remains unchanged."
+    },
+    {
+      "caseId": "AS-PIT-005",
+      "compatibility": {
+        "introducedIn": "1.0.0",
+        "sourceCaseId": "AS-PIT-005"
+      },
+      "title": "Reject a synchronized ranking when fiscal period ends differ",
+      "issuer": {
+        "company": "NVIDIA Corporation and Advanced Micro Devices, Inc.",
+        "ticker": "NVDA, AMD",
+        "cik": "0001045810, 0000002488"
+      },
+      "failureMode": "fiscal-period-misalignment",
+      "decisionTime": "2026-09-01T00:00:00.000Z",
+      "task": "Determine whether NVIDIA and AMD can be presented as a synchronized calendar-quarter ranking under the frozen contract.",
+      "expected": {
+        "responseStatus": "answered",
+        "answer": {
+          "strictSynchronizedRankingAllowed": false,
+          "periodEnds": [
+            {
+              "ticker": "NVDA",
+              "fiscalPeriod": "FY2027 Q2",
+              "periodEnded": "2026-07-26"
+            },
+            {
+              "ticker": "AMD",
+              "fiscalPeriod": "FY2026 Q2",
+              "periodEnded": "2026-06-27"
+            }
+          ]
+        },
+        "answerUnit": null,
+        "citedAccessions": [
+          "0001045810-26-000075",
+          "0000002488-26-000123"
+        ],
+        "evidenceIds": [
+          "nvidia:FY2027-Q2",
+          "amd:FY2026-Q2"
+        ],
+        "knowledgeState": "role-matched-not-calendar-synchronized"
+      },
+      "forbiddenFuture": {
+        "answers": [
+          {
+            "strictSynchronizedRankingAllowed": true
+          }
+        ],
+        "accessions": [],
+        "evidenceIds": [],
+        "acceptedAt": null
+      },
+      "sourceEvidence": [
+        {
+          "role": "nvidia-quarter",
+          "accession": "0001045810-26-000075",
+          "acceptedAt": "2026-08-26T20:36:00.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm"
+        },
+        {
+          "role": "amd-quarter",
+          "accession": "0000002488-26-000123",
+          "acceptedAt": "2026-08-04T21:40:01.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000123/amd-20260627.htm"
+        }
+      ],
+      "abstentionRule": "Answer the comparability question, but do not fabricate a synchronized rank.",
+      "passRule": "Preserve both fiscal period ends and reject a synchronized calendar-quarter ranking when the dates differ."
+    },
+    {
+      "caseId": "AS-PIT-006",
+      "compatibility": {
+        "introducedIn": "1.1.0",
+        "sourceCaseId": null
+      },
+      "title": "Use the previously reported BigBear.ai value before non-reliance",
+      "issuer": {
+        "company": "BigBear.ai Holdings, Inc.",
+        "ticker": "BBAI",
+        "cik": "0001836981"
+      },
+      "failureMode": "pre-restatement-vintage-selection",
+      "decisionTime": "2025-03-18T10:04:49.000Z",
+      "task": "Return the Net loss value for 2022-12-31 that remained eligible one second before the non-reliance notice.",
+      "expected": {
+        "responseStatus": "answered",
+        "answer": -121674000,
+        "answerUnit": "USD",
+        "citedAccessions": [
+          "0001628280-23-010166"
+        ],
+        "evidenceIds": [
+          "BBAI-RS-004"
+        ],
+        "knowledgeState": "previously-reported"
+      },
+      "forbiddenFuture": {
+        "answers": [
+          -111367000
+        ],
+        "accessions": [
+          "0001193125-25-056086",
+          "0001628280-25-014752"
+        ],
+        "evidenceIds": [],
+        "acceptedAt": "2025-03-18T10:04:50.000Z"
+      },
+      "sourceEvidence": [
+        {
+          "role": "eligible-prior",
+          "accession": "0001628280-23-010166",
+          "acceptedAt": "2023-03-31T20:18:35.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1836981/000162828023010166/bbai-20221231.htm"
+        },
+        {
+          "role": "future-non-reliance",
+          "accession": "0001193125-25-056086",
+          "acceptedAt": "2025-03-18T10:04:50.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1836981/000119312525056086/d925610d8k.htm"
+        },
+        {
+          "role": "future-restatement",
+          "accession": "0001628280-25-014752",
+          "acceptedAt": "2025-03-25T20:49:29.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1836981/000162828025014752/bbai-20241231.htm"
+        }
+      ],
+      "abstentionRule": "Do not abstain: the prior filing was still eligible immediately before the notice acceptance time.",
+      "passRule": "Select the previously reported value and prior accession. Do not import either the non-reliance state or later restated value."
+    },
+    {
+      "caseId": "AS-PIT-007",
+      "compatibility": {
+        "introducedIn": "1.1.0",
+        "sourceCaseId": null
+      },
+      "title": "Abstain during the BigBear.ai non-reliance window",
+      "issuer": {
+        "company": "BigBear.ai Holdings, Inc.",
+        "ticker": "BBAI",
+        "cik": "0001836981"
+      },
+      "failureMode": "non-reliance-window-backfill",
+      "decisionTime": "2025-03-20T14:00:00.000Z",
+      "task": "Return the reliable Net loss value for 2022-12-31, or abstain if no reliable value was public.",
+      "expected": {
+        "responseStatus": "abstained",
+        "answer": null,
+        "answerUnit": "USD",
+        "citedAccessions": [
+          "0001193125-25-056086"
+        ],
+        "evidenceIds": [
+          "BBAI-RS-004"
+        ],
+        "knowledgeState": "non-reliance-window"
+      },
+      "forbiddenFuture": {
+        "answers": [
+          -121674000,
+          -111367000
+        ],
+        "accessions": [
+          "0001628280-25-014752"
+        ],
+        "evidenceIds": [],
+        "acceptedAt": "2025-03-25T20:49:29.000Z"
+      },
+      "sourceEvidence": [
+        {
+          "role": "withdrawn-prior",
+          "accession": "0001628280-23-010166",
+          "acceptedAt": "2023-03-31T20:18:35.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1836981/000162828023010166/bbai-20221231.htm"
+        },
+        {
+          "role": "controlling-non-reliance",
+          "accession": "0001193125-25-056086",
+          "acceptedAt": "2025-03-18T10:04:50.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1836981/000119312525056086/d925610d8k.htm"
+        },
+        {
+          "role": "future-restatement",
+          "accession": "0001628280-25-014752",
+          "acceptedAt": "2025-03-25T20:49:29.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1836981/000162828025014752/bbai-20241231.htm"
+        }
+      ],
+      "abstentionRule": "Required. The prior value had been withdrawn from reliance and the restated value was not yet public.",
+      "passRule": "Return no numeric value, identify the non-reliance state and cite the 8-K without using the later restated accession."
+    },
+    {
+      "caseId": "AS-PIT-008",
+      "compatibility": {
+        "introducedIn": "1.1.0",
+        "sourceCaseId": null
+      },
+      "title": "Admit the restated BigBear.ai value only after SEC acceptance",
+      "issuer": {
+        "company": "BigBear.ai Holdings, Inc.",
+        "ticker": "BBAI",
+        "cik": "0001836981"
+      },
+      "failureMode": "post-restatement-vintage-selection",
+      "decisionTime": "2025-03-26T13:30:00.000Z",
+      "task": "Return the Net loss value eligible after the restated annual report and cite the controlling accession.",
+      "expected": {
+        "responseStatus": "answered",
+        "answer": -111367000,
+        "answerUnit": "USD",
+        "citedAccessions": [
+          "0001628280-25-014752"
+        ],
+        "evidenceIds": [
+          "BBAI-RS-004"
+        ],
+        "knowledgeState": "restated"
+      },
+      "forbiddenFuture": {
+        "answers": [],
+        "accessions": [],
+        "evidenceIds": [],
+        "acceptedAt": null
+      },
+      "sourceEvidence": [
+        {
+          "role": "prior",
+          "accession": "0001628280-23-010166",
+          "acceptedAt": "2023-03-31T20:18:35.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1836981/000162828023010166/bbai-20221231.htm"
+        },
+        {
+          "role": "non-reliance",
+          "accession": "0001193125-25-056086",
+          "acceptedAt": "2025-03-18T10:04:50.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1836981/000119312525056086/d925610d8k.htm"
+        },
+        {
+          "role": "eligible-restatement",
+          "accession": "0001628280-25-014752",
+          "acceptedAt": "2025-03-25T20:49:29.000Z",
+          "url": "https://www.sec.gov/Archives/edgar/data/1836981/000162828025014752/bbai-20241231.htm"
+        }
+      ],
+      "abstentionRule": "Do not abstain: the restated value is eligible after the Form 10-K acceptance time.",
+      "passRule": "Select the issuer-restated value and the restated Form 10-K accession; do not continue using the withdrawn prior value."
+    }
+  ]
+}

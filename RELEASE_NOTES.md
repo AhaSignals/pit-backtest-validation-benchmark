@@ -1,3 +1,24 @@
+# Version 1.1.0 — release candidate
+
+Adds a financial-AI conformance layer without changing the frozen version 1.0 files.
+
+## Added
+
+- three BigBear.ai cases covering the previously reported, non-reliance and restated knowledge states;
+- two evaluation tracks: evidence-restricted retrieval and knowledge-contamination control;
+- 16 machine-readable case-track prompts and one deterministic reference submission;
+- weighted scoring for temporal admissibility, accession citation, answer accuracy, abstention discipline and evidence completeness;
+- an automatic temporal-integrity hard failure for future accessions, future answers or an incorrect answer/abstention state;
+- a dependency-free JSONL scorer and submission schema;
+- byte-identity checks for all frozen v1.0 artifacts.
+
+## Source research objects
+
+- CoreWeave later-comparatives case study: https://doi.org/10.5281/zenodo.22288550
+- BigBear.ai accession-level PIT Revision Ledger: https://doi.org/10.5281/zenodo.22288546
+
+The v1.1 version DOI will be added after the release candidate passes review and is uploaded as a new version of the existing Zenodo record.
+
 # Version 1.0.0
 
 Initial public release of the AhaSignals Point-in-Time Backtest Validation Benchmark.

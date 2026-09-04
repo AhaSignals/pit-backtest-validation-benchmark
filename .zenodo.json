@@ -1,16 +1,17 @@
 {
-  "title": "AhaSignals Point-in-Time Backtest Validation Benchmark",
+  "title": "AhaSignals Financial AI Point-in-Time Integrity Benchmark",
   "upload_type": "software",
-  "description": "Five open, source-dated reference cases for detecting later-value backfilling, sign-flip leakage, preliminary-to-filed eligibility errors, evidence upgrades and fiscal-period misalignment in SEC-filing backtests. Version 1 is a data-integrity benchmark and does not establish investment performance.",
+  "description": "Eight open, source-dated conformance cases for testing whether a financial AI system respects SEC acceptance-time cutoffs, accession lineage, non-reliance windows and required abstention. Version 1.1 runs each case in evidence-restricted retrieval and knowledge-contamination tracks. It evaluates data-time integrity, not investment performance or general model intelligence.",
   "creators": [
     { "name": "AhaSignals" }
   ],
-  "version": "1.0.0",
-  "publication_date": "2026-09-03",
+  "version": "1.1.0",
+  "publication_date": "2026-09-04",
   "license": "mit",
   "access_right": "open",
   "language": "eng",
   "keywords": [
+    "financial AI evaluation",
     "point-in-time financial data",
     "backtest validation",
     "look-ahead bias",
@@ -21,7 +22,22 @@
   ],
   "related_identifiers": [
     {
+      "identifier": "10.5281/zenodo.22279744",
+      "relation": "isNewVersionOf",
+      "scheme": "doi"
+    },
+    {
       "identifier": "10.5281/zenodo.22239714",
+      "relation": "isDerivedFrom",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.22288550",
+      "relation": "isDerivedFrom",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.22288546",
       "relation": "isDerivedFrom",
       "scheme": "doi"
     },

@@ -35,6 +35,14 @@ Candidate future cases include:
 - after-hours filing used at the same day's closing price;
 - XBRL taxonomy change mistaken for an economic change.
 
+## Financial AI submission rule
+
+Each public version fixes the case-track prompts, expected answers, admissible accessions, forbidden future states, scoring weights and submission schema. A model or agent submission must contain exactly one JSONL response for each case-track pair.
+
+The scorer records five dimensions: temporal admissibility, accession citation, answer accuracy, abstention discipline and evidence completeness. A future accession, future answer or incorrect answer/abstention state is a temporal-integrity hard failure. Aggregate points cannot override that status.
+
+The evidence-restricted and knowledge-contamination tracks remain separate. A retrieval result cannot be represented as proof that a model's internal knowledge is time-bounded.
+
 ## Performance layer
 
 Return statistics remain `not-evaluated` until a user supplies market data under a documented license or entitlement. A price-adapter revision creates a new benchmark run because execution timing, adjustment policy and source coverage can change the result.

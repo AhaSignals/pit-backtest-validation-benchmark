@@ -1,8 +1,8 @@
-# Published Zenodo record
+# Zenodo new-version checklist for v1.1.0
 
-- Version DOI: https://doi.org/10.5281/zenodo.22279744
+- Current frozen v1.0 DOI: https://doi.org/10.5281/zenodo.22279744
 - All-versions concept DOI: https://doi.org/10.5281/zenodo.22279743
-- Published record: https://zenodo.org/records/22279744
+- Create v1.1 by selecting **New version** on the v1.0 record. Do not create a separate concept record.
 
 ## Resource type
 
@@ -10,15 +10,15 @@ Software
 
 ## Title
 
-AhaSignals Point-in-Time Backtest Validation Benchmark
+AhaSignals Financial AI Point-in-Time Integrity Benchmark
 
 ## Version
 
-1.0.0
+1.1.0
 
 ## Publication date
 
-2026-09-03
+2026-09-04
 
 ## Creator
 
@@ -26,7 +26,7 @@ AhaSignals
 
 ## Description
 
-Five open, source-dated reference cases for detecting common point-in-time failures in SEC-filing backtests. The benchmark tests later comparative values backfilled into earlier decisions, a later sign change imported into a historical information set, preliminary evidence treated as a completed filing, an evidence upgrade hidden by an unchanged derived value, and different fiscal period ends presented as one synchronized quarter. Each case preserves its decision time, expected source vintage, forbidden future state, SEC accession and pass rule. Version 1 contains 28 CoreWeave vintage observations across 14 matched fact identities and a deterministic five-of-five reference result. It is a data-integrity benchmark and does not establish investment performance.
+Eight open, source-dated conformance cases for testing whether a financial AI system respects SEC acceptance-time cutoffs, accession lineage, non-reliance windows and required abstention. Version 1.1 preserves the five v1.0 compatibility cases and adds three BigBear.ai cases spanning the previously reported, non-reliance and restated knowledge states. Every case runs in evidence-restricted retrieval and knowledge-contamination tracks. A future accession, future answer or incorrect answer/abstention state is a temporal-integrity failure. The deterministic 16-of-16 reference fixture validates the scorer and is not a third-party model result. The benchmark evaluates data-time integrity, not investment performance or general model intelligence.
 
 ## License
 
@@ -35,6 +35,7 @@ MIT for the verifier. The original benchmark fixtures and documentation are CC B
 ## Keywords
 
 - point-in-time financial data
+- financial AI evaluation
 - backtest validation
 - look-ahead bias
 - SEC filings
@@ -44,13 +45,17 @@ MIT for the verifier. The original benchmark fixtures and documentation are CC B
 
 ## Related identifiers
 
-- Is derived from: https://doi.org/10.5281/zenodo.22239714 — underlying AI-infrastructure source cross-section
+- Is new version of: https://doi.org/10.5281/zenodo.22279744 — frozen v1.0 benchmark
+- Is derived from: https://doi.org/10.5281/zenodo.22288550 — CoreWeave comparative-leakage case study
+- Is derived from: https://doi.org/10.5281/zenodo.22288546 — BigBear.ai accession-level PIT Revision Ledger
 - Is documented by: https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/
 
 ## Repository URL
 
 https://github.com/AhaSignals/pit-backtest-validation-benchmark
 
-## Files
+## Files and finalization
 
-The record contains the original `ahasignals-pit-backtest-validation-benchmark-v1.0.0.zip` attached to the GitHub release. Its SHA-256 is `dc90b937e9ae0460518e52c772e5ca0b1f06fac05b47bbeb81da794070881b80`. Do not regenerate the frozen files in `data/v1/` or alter tag `v1.0.0`.
+Upload the exact archive attached to the future GitHub `v1.1.0` release. Do not regenerate it after upload. Record its SHA-256 here and in the release notes, then add the assigned version DOI to `benchmark.json`, root `CITATION.cff`, `data/v1.1/CITATION.cff` and the canonical website page before the final public tag.
+
+Do not modify the frozen files in `data/v1/` or alter tag `v1.0.0`.
