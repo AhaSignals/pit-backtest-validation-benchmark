@@ -5,11 +5,15 @@
   "type": "module",
   "description": "Open conformance cases for testing point-in-time integrity in financial AI and SEC-filing backtests.",
   "scripts": {
-    "test": "node scripts/verify.mjs && node scripts/verify-v1.1.mjs && node scripts/verify-operator-evidence.mjs && node scripts/score-submission.mjs && node scripts/verify-results.mjs",
+    "test": "node scripts/verify.mjs && node scripts/verify-v1.1.mjs && node scripts/verify-operator-evidence.mjs && node scripts/score-submission.mjs && node scripts/verify-results.mjs && node scripts/test-independent-tooling.mjs",
     "verify": "node scripts/verify.mjs && node scripts/verify-v1.1.mjs",
     "score": "node scripts/score-submission.mjs",
     "verify:results": "node scripts/verify-results.mjs",
-    "run:operator": "node scripts/run-codex-operator.mjs"
+    "run:operator": "node scripts/run-codex-operator.mjs",
+    "preflight:independent": "node scripts/preflight-independent.mjs",
+    "run:independent": "node scripts/run-independent.mjs",
+    "verify:independent": "node scripts/verify-independent-result.mjs",
+    "package:independent": "node scripts/package-independent-result.mjs"
   },
   "engines": {
     "node": ">=18"

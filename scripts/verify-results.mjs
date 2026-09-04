@@ -61,5 +61,18 @@ for (const entry of registry.operatorRuns) {
   assert.equal(entry.temporalIntegrityFailureCount, reproduced.summary.temporalIntegrityFailureCount);
 }
 
-console.log(`PASS results registry: ${calibration.entries.length} calibration fixtures, ${registry.operatorRuns.length} operator run(s), ${registry.independentRuns.length} independent run(s).`);
+for (const entry of registry.independentRuns) {
+  const manifestPath = path.join(root, 'results', entry.path);
+  const runRoot = path.dirname(manifestPath);
+  const verification = spawnSync(process.execPath, [path.join(root, 'scripts/verify-independent-result.mjs'), runRoot], { cwd: root, encoding: 'utf8' });
+  assert.equal(verification.status, 0, `Independent result verification failed for ${entry.runId}:\n${verification.stdout}${verification.stderr}`);
+  const manifest = readJson(manifestPath);
+  assert.equal(manifest.runId, entry.runId);
+  assert.equal(manifest.operator, entry.operator);
+  assert.equal(manifest.model.provider, entry.provider);
+  assert.equal(manifest.model.requestedModel, entry.requestedModel);
+  assert.equal(manifest.result, entry.result);
+  assert.equal(manifest.score.temporalIntegrityFailureCount, entry.temporalIntegrityFailureCount);
+}
 
+console.log(`PASS results registry: ${calibration.entries.length} calibration fixtures, ${registry.operatorRuns.length} operator run(s), ${registry.independentRuns.length} independent run(s).`);

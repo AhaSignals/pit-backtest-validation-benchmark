@@ -56,6 +56,8 @@ checksums.sha256
 
 `raw-events.jsonl` stores one object per case-track pair. Each object contains the unmodified stdout and stderr returned by the execution client. It may be large; it is evidence, not presentation copy.
 
+An `independent` directory contains the same machine-verifiable evidence plus `SUBMISSION.md`, which summarizes the operator, provider, requested model, result and interpretation boundary. The independent runner does not store provider credentials.
+
 ## Interpretation
 
 The primary outcome is temporal integrity:
@@ -70,3 +72,16 @@ A top-level `pass` additionally requires every response to receive 100 points. O
 
 Independent submitters should open a pull request containing an append-only directory under `results/independent/`. The submission must identify the operator and preserve raw responses. AhaSignals verifies the format and deterministic score; it does not certify the submitter's model-access claims.
 
+The supported execution path is:
+
+```bash
+npm run preflight:independent -- --provider codex --model MODEL --operator "NAME"
+npm run run:independent -- --provider codex --model MODEL --operator "NAME" --execute
+npm run verify:independent -- results/independent/RUN_ID
+```
+
+Use `--provider openai` with `OPENAI_API_KEY` for the OpenAI Responses API. Every provider call is a fresh request, no tools are supplied, the runner performs no retries and the normalized answers are not manually edited. A malformed response stops the run and preserves partial raw evidence in an unregistered `INCOMPLETE` directory.
+
+The runner adds a completed result to `results/index.json`. Do not combine independent and AhaSignals-operated results in one ranking. A submitted result may fail the benchmark; failing results remain valid research objects when their evidence package is complete.
+
+Model and provider names are recorded only as submitter-supplied execution metadata. Their inclusion does not imply provider participation, endorsement or independent certification of the run.

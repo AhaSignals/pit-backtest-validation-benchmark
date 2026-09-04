@@ -64,6 +64,52 @@ Results are append-only objects separate from the frozen benchmark. Read [`RESUL
 
 Operator runs use one fresh context per case-track prompt and the reviewed, checksum-addressable evidence cards in `operator/evidence-v1.1.json`. They are reported separately from independent submissions and are not a general model leaderboard.
 
+## Run an independent reproduction
+
+The independent runner performs the frozen v1.1 check, sends all 16 case-track prompts in isolated requests, preserves raw responses, scores the submission, writes SHA-256 checksums, verifies the completed result, creates a portable ZIP and adds the result to the independent registry. Node.js 18 or later is the only repository dependency.
+
+First run a no-charge preflight:
+
+```bash
+npm run preflight:independent -- \
+  --provider codex \
+  --model YOUR_EXACT_MODEL_ID \
+  --operator "Your name or organization"
+```
+
+Then execute with Codex CLI:
+
+```bash
+npm run run:independent -- \
+  --provider codex \
+  --model YOUR_EXACT_MODEL_ID \
+  --operator "Your name or organization" \
+  --execute
+```
+
+The runner discovers `codex` on `PATH`. Use `--codex-bin /path/to/codex` or `CODEX_BIN` when needed. A signed-in Codex CLI session is required.
+
+Or use the OpenAI Responses API:
+
+```bash
+OPENAI_API_KEY=... npm run run:independent -- \
+  --provider openai \
+  --model YOUR_EXACT_MODEL_ID \
+  --operator "Your name or organization" \
+  --execute
+```
+
+`--execute` is an explicit acknowledgement that the command makes 16 model requests and may incur provider charges. The key is read from the environment and is never written to result artifacts.
+
+After a completed run, these commands can repeat the verification or produce another transfer copy:
+
+```bash
+npm run verify:independent -- results/independent/YOUR_RUN_ID
+npm run package:independent -- results/independent/YOUR_RUN_ID
+```
+
+The package command re-verifies the result before producing a portable ZIP. The main runner already performs both steps. Open a pull request with the append-only result directory and its `results/index.json` entry; the ZIP is for transfer or archival and is ignored by Git.
+
 ## Scoring
 
 | Dimension | Weight |
@@ -96,6 +142,10 @@ scripts/
   score-submission.mjs     # deterministic v1.1 scorer
   verify-results.mjs       # verifies calibration and public result artifacts
   run-codex-operator.mjs   # isolated Codex CLI operator runner
+  preflight-independent.mjs # no-charge environment and frozen-data check
+  run-independent.mjs      # portable Codex CLI / OpenAI API runner
+  verify-independent-result.mjs # independent artifact and score verifier
+  package-independent-result.mjs # dependency-free deterministic ZIP packager
 operator/
   evidence-v1.1.json       # reviewed closed evidence surface for operator runs
   single-response.schema.json
@@ -105,6 +155,8 @@ results/
   calibration/
   operator-run/
   independent/
+independent/
+  run-manifest.schema.json # independent result manifest contract
 docs/
   UPDATE-PROTOCOL.md
 ```
@@ -128,4 +180,4 @@ This suite evaluates data-time integrity. It does not establish factor alpha, in
 
 The reference scorer is licensed under the MIT License. The original benchmark compilation, fixtures and documentation are licensed under CC BY 4.0; underlying factual information remains attributable to the cited SEC filings and issuers.
 
-AhaSignals is an independent research publisher. Company names and ticker symbols identify SEC filers and source evidence only. AhaSignals is not affiliated with or endorsed by the referenced issuers or the SEC. Research and education only; not investment, trading, legal, accounting or tax advice.
+AhaSignals is an independent research publisher. Company, model and provider names identify source evidence or execution metadata only. AhaSignals is not affiliated with, endorsed by or sponsored by the referenced issuers, model providers or the SEC. Research and education only; not investment, trading, legal, accounting or tax advice.
