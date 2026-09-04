@@ -1,6 +1,7 @@
 # Zenodo new-version checklist for v1.1.0
 
 - Current frozen v1.0 DOI: https://doi.org/10.5281/zenodo.22279744
+- Reserved v1.1 DOI: https://doi.org/10.5281/zenodo.22289017
 - All-versions concept DOI: https://doi.org/10.5281/zenodo.22279743
 - Create v1.1 by selecting **New version** on the v1.0 record. Do not create a separate concept record.
 
@@ -56,6 +57,6 @@ https://github.com/AhaSignals/pit-backtest-validation-benchmark
 
 ## Files and finalization
 
-Upload the exact archive attached to the future GitHub `v1.1.0` release. Do not regenerate it after upload. Record its SHA-256 here and in the release notes, then add the assigned version DOI to `benchmark.json`, root `CITATION.cff`, `data/v1.1/CITATION.cff` and the canonical website page before the final public tag.
+Upload the exact archive attached to the GitHub `v1.1.0` release. Do not regenerate it after upload. Record its SHA-256 here and in the release notes. The reserved DOI is already embedded in `benchmark.json`, root `CITATION.cff`, `data/v1.1/CITATION.cff` and the canonical website page before the final public tag.
 
 Do not modify the frozen files in `data/v1/` or alter tag `v1.0.0`.

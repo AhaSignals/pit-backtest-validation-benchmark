@@ -1,11 +1,12 @@
 # AhaSignals Financial AI Point-in-Time Integrity Benchmark
 
 - Version: 1.1.0
-- Status: release candidate
+- Status: frozen
 - Published package date: 2026-09-04
 - Canonical research page: https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/
 - Public repository: https://github.com/AhaSignals/pit-backtest-validation-benchmark
 - Evolving-series DOI: https://doi.org/10.5281/zenodo.22279743
+- Frozen version DOI: https://doi.org/10.5281/zenodo.22289017
 - Data compilation and documentation: CC BY 4.0
 - Reference scorer: MIT
 
@@ -52,7 +53,7 @@ Using a forbidden future accession, returning a forbidden future answer, or answ
 
 ## Publication boundary
 
-Version 1.1 remains a release candidate until its version DOI is assigned and inserted without changing the case evidence or expected answers. The v1.0 directory remains byte-for-byte frozen.
+Version 1.1 is frozen under https://doi.org/10.5281/zenodo.22289017. The case evidence, expected answers and score weights are checksum-locked. The v1.0 directory remains byte-for-byte frozen.
 
 ## Boundary
 

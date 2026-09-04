@@ -22,8 +22,8 @@ const report = json('baseline-report.json');
 
 assert.equal(benchmark.artifact.id, 'ahasignals-financial-ai-pit-integrity-benchmark-v1-1');
 assert.equal(benchmark.artifact.version, '1.1.0');
-assert.equal(benchmark.artifact.status, 'release-candidate');
-assert.equal(benchmark.artifact.versionDoi, null);
+assert.equal(benchmark.artifact.status, 'frozen');
+assert.equal(benchmark.artifact.versionDoi, '10.5281/zenodo.22289017');
 assert.equal(benchmark.artifact.conceptDoi, '10.5281/zenodo.22279743');
 assert.deepEqual(benchmark.cases, cases.cases);
 assert.deepEqual(benchmark.cases.map((item) => item.caseId), ['AS-PIT-001', 'AS-PIT-002', 'AS-PIT-003', 'AS-PIT-004', 'AS-PIT-005', 'AS-PIT-006', 'AS-PIT-007', 'AS-PIT-008']);

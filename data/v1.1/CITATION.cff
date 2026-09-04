@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Cite the frozen version DOI after publication and the underlying source research objects."
+message: "Cite this frozen version DOI and the underlying source research objects."
 type: software
 title: "AhaSignals Financial AI Point-in-Time Integrity Benchmark"
 version: 1.1.0
@@ -17,5 +17,7 @@ keywords:
   - SEC filings
   - reproducible research
 identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22289017"
   - type: doi
     value: "10.5281/zenodo.22279743"

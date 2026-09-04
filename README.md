@@ -1,9 +1,10 @@
 # AhaSignals Financial AI Point-in-Time Integrity Benchmark
 
-[![Version](https://img.shields.io/badge/version-1.1.0--rc-087653)](https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/)
+[![Version](https://img.shields.io/badge/version-1.1.0-087653)](https://doi.org/10.5281/zenodo.22289017)
 [![Reference responses](https://img.shields.io/badge/reference_responses-16%2F16_pass-087653)](data/v1.1/baseline-report.json)
 [![Series DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22279743.svg)](https://doi.org/10.5281/zenodo.22279743)
 [![Frozen v1.0 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22279744.svg)](https://doi.org/10.5281/zenodo.22279744)
+[![Frozen v1.1 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22289017.svg)](https://doi.org/10.5281/zenodo.22289017)
 
 Can a financial AI system avoid using SEC information that did not exist at the stated decision time?
 
@@ -69,7 +70,7 @@ Any forbidden future accession, forbidden future answer or incorrect response st
 
 ```text
 data/v1/                   # immutable version 1.0.0
-data/v1.1/                 # version 1.1.0 release candidate
+data/v1.1/                 # frozen version 1.1.0
   benchmark.json
   decision-cases.json
   prompts.jsonl
@@ -94,10 +95,11 @@ docs/
 - Canonical explanation: https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/
 - Benchmark series DOI: https://doi.org/10.5281/zenodo.22279743
 - Frozen version 1.0.0 DOI: https://doi.org/10.5281/zenodo.22279744
+- Frozen version 1.1.0 DOI: https://doi.org/10.5281/zenodo.22289017
 - CoreWeave case-study DOI: https://doi.org/10.5281/zenodo.22288550
 - BigBear.ai Revision Ledger DOI: https://doi.org/10.5281/zenodo.22288546
 
-Version 1.1 remains a release candidate until its version DOI is assigned. The evidence, expected answers and score weights are frozen by checksum before that metadata-only step.
+Version 1.1 is frozen under its version DOI. Its evidence, expected answers and score weights are checksum-locked; any later benchmark change requires a new version.
 
 ## Interpretation boundary
 

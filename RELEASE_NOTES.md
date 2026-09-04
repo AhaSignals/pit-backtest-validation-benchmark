@@ -1,4 +1,4 @@
-# Version 1.1.0 — release candidate
+# Version 1.1.0
 
 Adds a financial-AI conformance layer without changing the frozen version 1.0 files.
 
@@ -17,7 +17,7 @@ Adds a financial-AI conformance layer without changing the frozen version 1.0 fi
 - CoreWeave later-comparatives case study: https://doi.org/10.5281/zenodo.22288550
 - BigBear.ai accession-level PIT Revision Ledger: https://doi.org/10.5281/zenodo.22288546
 
-The v1.1 version DOI will be added after the release candidate passes review and is uploaded as a new version of the existing Zenodo record.
+Permanent version archive: https://doi.org/10.5281/zenodo.22289017. The all-versions concept DOI remains https://doi.org/10.5281/zenodo.22279743.
 
 # Version 1.0.0
 

@@ -9,8 +9,9 @@
     "canonicalUrl": "https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/",
     "repositoryUrl": "https://github.com/AhaSignals/pit-backtest-validation-benchmark",
     "publishedAt": "2026-09-04",
-    "status": "release-candidate",
-    "versionDoi": null,
+    "status": "frozen",
+    "versionDoi": "10.5281/zenodo.22289017",
+    "versionDoiUrl": "https://doi.org/10.5281/zenodo.22289017",
     "conceptDoi": "10.5281/zenodo.22279743",
     "conceptDoiUrl": "https://doi.org/10.5281/zenodo.22279743",
     "dataLicense": "CC BY 4.0",
@@ -830,12 +831,12 @@
     "Research and education only; not investment, trading, legal, accounting or tax advice."
   ],
   "citation": {
-    "text": "AhaSignals. “AhaSignals Financial AI Point-in-Time Integrity Benchmark.” Version 1.1.0, release candidate, 2026-09-04. https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/",
+    "text": "AhaSignals. “AhaSignals Financial AI Point-in-Time Integrity Benchmark.” Version 1.1.0, 2026-09-04. https://doi.org/10.5281/zenodo.22289017",
     "bibtexKey": "AhaSignals2026FinancialAIPITIntegrityBenchmark"
   },
   "integrity": {
     "algorithm": "SHA-256",
     "canonicalization": "UTF-8 JSON.stringify(payload), preserving published object key and array order, without whitespace.",
-    "payloadSha256": "04fc3ede9eb4bafc7b205d29bcbd7dc4918de7b2c62f29d85772ae21336ed2a8"
+    "payloadSha256": "1d2cc7021dbdbfbdfaa8669045a3e838acd134d0ee2019ab8fd50de5d58de072"
   }
 }
