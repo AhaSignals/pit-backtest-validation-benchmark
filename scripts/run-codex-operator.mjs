@@ -17,9 +17,16 @@ if (!args.includes('--execute')) throw new Error('Refusing to run without --exec
 const requestedModel = arg('--model', 'gpt-5.6-sol');
 const reasoningEffort = arg('--reasoning', 'high');
 const operator = arg('--operator', 'AhaSignals');
+if (!['ahasignals', 'researcher'].includes(operator.trim().toLowerCase())) {
+  throw new Error('--operator must be AhaSignals or researcher for an AhaSignals-operated run.');
+}
 const now = new Date();
 const runId = arg('--run-id', `openai-${requestedModel}-${now.toISOString().replace(/[:.]/g, '-').toLowerCase()}`);
 if (!/^[a-z0-9][a-z0-9._-]+$/.test(runId)) throw new Error('run-id must contain lowercase letters, numbers, dots, underscores or hyphens.');
+const privateHandle = String.fromCharCode(0x73, 0x6e, 0x6f, 0x77);
+if (new RegExp(`(?:^|[^a-z0-9])${privateHandle}(?:$|[^a-z0-9])`, 'i').test(runId)) {
+  throw new Error('--run-id contains a private identity. Use an AhaSignals research identifier.');
+}
 
 const readJson = (filename) => JSON.parse(fs.readFileSync(filename, 'utf8'));
 const sha256File = (filename) => createHash('sha256').update(fs.readFileSync(filename)).digest('hex');

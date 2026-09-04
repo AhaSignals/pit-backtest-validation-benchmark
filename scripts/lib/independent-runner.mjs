@@ -39,9 +39,19 @@ export function slug(value) {
   return value.toLowerCase().replace(/[^a-z0-9._-]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
+const privateHandle = String.fromCharCode(0x73, 0x6e, 0x6f, 0x77);
+const privateIdentity = new RegExp(`(?:^|[^a-z0-9])${privateHandle}(?:$|[^a-z0-9])`, 'i');
+
+export function assertPublicIdentity(value, label) {
+  if (privateIdentity.test(value)) {
+    throw new Error(`${label} contains a private identity. Use AhaSignals or researcher for an AhaSignals-operated run.`);
+  }
+}
+
 export function validateRunIdentity({ operator, model }) {
   if (!model || model.length > 160 || /[\r\n\0]/.test(model)) throw new Error('--model must be a single-line exact model ID of 160 characters or fewer.');
   if (!operator || operator.trim().length < 2 || operator.length > 160 || /[\r\n\0]/.test(operator)) throw new Error('--operator must be a single-line person or organization name of 2–160 characters.');
+  assertPublicIdentity(operator, '--operator');
   if (operator.trim().toLowerCase() === 'ahasignals') throw new Error('AhaSignals-operated runs belong under run:operator, not the independent registry.');
 }
 

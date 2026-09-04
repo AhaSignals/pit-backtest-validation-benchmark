@@ -4,7 +4,7 @@ import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { createOpenAiAdapter, loadTasks, root, sha256File } from './lib/independent-runner.mjs';
+import { assertPublicIdentity, createOpenAiAdapter, loadTasks, root, sha256File } from './lib/independent-runner.mjs';
 
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ahasignals-independent-tooling-'));
 const runId = 'independent-tooling-calibration';
@@ -14,6 +14,9 @@ const registryPath = path.join(root, 'results/index.json');
 const registryBefore = fs.readFileSync(registryPath);
 
 try {
+  const privateHandle = String.fromCharCode(0x73, 0x6e, 0x6f, 0x77);
+  assert.throws(() => assertPublicIdentity(privateHandle, '--operator'), /private identity/);
+  assert.doesNotThrow(() => assertPublicIdentity('researcher', '--operator'));
   assert.ok(!fs.existsSync(runRoot), `Reserved test run already exists: ${runRoot}`);
   const mockCodex = path.join(tempRoot, 'mock-codex');
   const referencePath = path.join(root, 'data/v1.1/reference-submission.jsonl');

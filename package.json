@@ -5,7 +5,8 @@
   "type": "module",
   "description": "Open conformance cases for testing point-in-time integrity in financial AI and SEC-filing backtests.",
   "scripts": {
-    "test": "node scripts/verify.mjs && node scripts/verify-v1.1.mjs && node scripts/verify-operator-evidence.mjs && node scripts/score-submission.mjs && node scripts/verify-results.mjs && node scripts/test-independent-tooling.mjs",
+    "test": "node scripts/check-public-identity.mjs && node scripts/verify.mjs && node scripts/verify-v1.1.mjs && node scripts/verify-operator-evidence.mjs && node scripts/score-submission.mjs && node scripts/verify-results.mjs && node scripts/test-independent-tooling.mjs",
+    "check:public-identity": "node scripts/check-public-identity.mjs",
     "verify": "node scripts/verify.mjs && node scripts/verify-v1.1.mjs",
     "score": "node scripts/score-submission.mjs",
     "verify:results": "node scripts/verify-results.mjs",

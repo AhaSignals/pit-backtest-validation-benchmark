@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {
   assertSupportedNode,
+  assertPublicIdentity,
   createCodexAdapter,
   createOpenAiAdapter,
   finalizeRun,
@@ -68,6 +69,7 @@ const now = new Date();
 const generatedRunId = `${slug(provider)}-${slug(model)}-${now.toISOString().replace(/[:.]/g, '-').toLowerCase()}`;
 const runId = args.get('--run-id', generatedRunId);
 if (!/^[a-z0-9][a-z0-9._-]+$/.test(runId)) throw new Error('run-id must contain lowercase letters, numbers, dots, underscores or hyphens.');
+assertPublicIdentity(runId, '--run-id');
 const runRoot = path.join(root, 'results/independent', runId);
 if (fs.existsSync(runRoot)) throw new Error(`Run directory already exists: ${runRoot}`);
 fs.mkdirSync(runRoot, { recursive: true });
