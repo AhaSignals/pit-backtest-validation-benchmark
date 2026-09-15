@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "Cite this frozen version DOI and the underlying source research objects."
+type: software
+title: "AhaSignals Financial AI Point-in-Time Integrity Benchmark"
+version: 1.1.0
+date-released: 2026-09-04
+authors:
+  - name: AhaSignals
+license: MIT
+url: "https://ahasignals.com/research/point-in-time-backtest-validation-benchmark/"
+repository-code: "https://github.com/AhaSignals/pit-backtest-validation-benchmark"
+abstract: "Eight open, source-dated conformance cases for testing whether a financial AI system respects SEC acceptance-time cutoffs, accession lineage, non-reliance windows and required abstention."
+keywords:
+  - financial AI evaluation
+  - point-in-time financial data
+  - look-ahead bias
+  - SEC filings
+  - reproducible research
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22289017"
+  - type: doi
+    value: "10.5281/zenodo.22279743"

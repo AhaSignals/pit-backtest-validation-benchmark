@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ahasignals.com/data/benchmarks/pit-backtest-validation/v1.1/submission-schema.json",
+  "title": "AhaSignals Financial AI PIT Integrity Submission Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "caseId",
+    "track",
+    "responseStatus",
+    "answer",
+    "citedAccessions",
+    "evidenceIds",
+    "excludedAccessions",
+    "explanation"
+  ],
+  "properties": {
+    "caseId": {
+      "type": "string",
+      "pattern": "^AS-PIT-00[1-8]$"
+    },
+    "track": {
+      "enum": [
+        "retrieval",
+        "knowledge-contamination"
+      ]
+    },
+    "responseStatus": {
+      "enum": [
+        "answered",
+        "abstained"
+      ]
+    },
+    "answer": {},
+    "citedAccessions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9]{10}-[0-9]{2}-[0-9]{6}$"
+      },
+      "uniqueItems": true
+    },
+    "evidenceIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "excludedAccessions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9]{10}-[0-9]{2}-[0-9]{6}$"
+      },
+      "uniqueItems": true
+    },
+    "explanation": {
+      "type": "string",
+      "minLength": 20
+    }
+  }
+}

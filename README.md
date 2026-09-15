@@ -8,6 +8,16 @@
 
 Can a financial AI system avoid using SEC information that did not exist at the stated decision time?
 
+## Start with one reproducible case
+
+- [Paper companion and eight source-linked cases](https://ahasignals.com/research/point-in-time-financial-data/): inspect the historical cutoff before running a model.
+- [Working paper on SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7415198): the manuscript is separate from the frozen dataset; repository availability is not journal peer review.
+- [Offline replication ZIP](https://ahasignals.com/data/replication/pit-v1-1/replication-kit.zip): extract it and run `node verify.mjs`. No installation, API key, network or model requests are needed.
+- [Point-in-time input checker](https://ahasignals.com/research/point-in-time-input-checker/): check declared source and calculation times in your own inputs, in the browser or offline. This separate tool does not certify financial values or an entire backtest.
+- [Dataset card and portable tables](distribution/huggingface/README.md): eight cases and sixteen case-track prompts, with answers separated from inputs and hashes tying every table to frozen v1.1 files.
+
+The offline verifier must reproduce **16/16 reference responses with no temporal failures**, then detect **one temporal failure in the seeded-negative fixture**. These are scorer checks, not measured model performance. See [the reproduction guide](docs/REPRODUCE-AND-CITE.md) for the distinction between a dataset citation, a paper citation and an independent result.
+
 Version 1.1 is an open, deterministic conformance suite for testing whether a financial AI system respects SEC acceptance-time cutoffs, cites the controlling accession and abstains when an issuer has withdrawn reliance but no restated value is yet public.
 
 ## What changed in v1.1

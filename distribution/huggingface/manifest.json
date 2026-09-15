@@ -1,0 +1,47 @@
+{
+  "distributionVersion": "2026-09-16-v1",
+  "benchmarkVersion": "1.1.0",
+  "creator": "AhaSignals",
+  "benchmarkDoi": "10.5281/zenodo.22289017",
+  "sourceRepository": "https://github.com/AhaSignals/pit-backtest-validation-benchmark",
+  "sourceFiles": {
+    "data/v1.1/CITATION.cff": "1dd6190f8a1d98fdaa8af00335e970599d45c29a6e80b108209053de445393d8",
+    "data/v1.1/README.md": "48a43750142f0902bd5ae7f6dab9a1bb8db27c83951631c3dc7c0a2ae58d6da8",
+    "data/v1.1/adversarial-submission.jsonl": "585dbc6c8ab52df0f1992f3ce46823023d451ec007458a3ff3b288fd09cffff0",
+    "data/v1.1/baseline-report.json": "06e166d60f9323af9bff23d47dbfed4f92f83a62ab378b1543d73fbd61658663",
+    "data/v1.1/benchmark.json": "0102ad1873c947fb80a8e946d8fb84b5c6da4cade2da8f237bd0ebba6baee532",
+    "data/v1.1/checksums.sha256": "a215d18686226cf990891a18d503c53a1dbd87c2d2bb70a666d8e880dc235131",
+    "data/v1.1/citation.bib": "b5af1d686d26848933983dae4c407be19c4067db45c3e9a7a732b4a4c8e224f3",
+    "data/v1.1/decision-cases.json": "fedb2ff7e263d3c8b3da328bb4d003301e0d9d809686f594d6047681fc2be06e",
+    "data/v1.1/prompts.jsonl": "0f9a6e7d70c9234f83572775ac4069e9cd19576cb5ff6257d5f1a1e4246afde1",
+    "data/v1.1/reference-submission.jsonl": "59ed428637e9e5dc84a87a43587f797462c889e4816eee0feb7ec08376b3ded2",
+    "data/v1.1/schema.json": "3ce2827e16a4b1cd12f954e27bd85f0720696c72114fe786531d1fb00946532b",
+    "data/v1.1/submission-schema.json": "f3402a7c031acd943fe92d2f9440193da2e1f66083809110bd26f1e165b3a590"
+  },
+  "counts": {
+    "cases": 8,
+    "prompts": 16,
+    "referenceAnswers": 16
+  },
+  "boundary": "Public conformance fixtures, not held-out evaluation or independently collected historical observations.",
+  "files": {
+    "original/data/v1.1/CITATION.cff": "1dd6190f8a1d98fdaa8af00335e970599d45c29a6e80b108209053de445393d8",
+    "original/data/v1.1/README.md": "48a43750142f0902bd5ae7f6dab9a1bb8db27c83951631c3dc7c0a2ae58d6da8",
+    "original/data/v1.1/adversarial-submission.jsonl": "585dbc6c8ab52df0f1992f3ce46823023d451ec007458a3ff3b288fd09cffff0",
+    "original/data/v1.1/baseline-report.json": "06e166d60f9323af9bff23d47dbfed4f92f83a62ab378b1543d73fbd61658663",
+    "original/data/v1.1/benchmark.json": "0102ad1873c947fb80a8e946d8fb84b5c6da4cade2da8f237bd0ebba6baee532",
+    "original/data/v1.1/checksums.sha256": "a215d18686226cf990891a18d503c53a1dbd87c2d2bb70a666d8e880dc235131",
+    "original/data/v1.1/citation.bib": "b5af1d686d26848933983dae4c407be19c4067db45c3e9a7a732b4a4c8e224f3",
+    "original/data/v1.1/decision-cases.json": "fedb2ff7e263d3c8b3da328bb4d003301e0d9d809686f594d6047681fc2be06e",
+    "original/data/v1.1/prompts.jsonl": "0f9a6e7d70c9234f83572775ac4069e9cd19576cb5ff6257d5f1a1e4246afde1",
+    "original/data/v1.1/reference-submission.jsonl": "59ed428637e9e5dc84a87a43587f797462c889e4816eee0feb7ec08376b3ded2",
+    "original/data/v1.1/schema.json": "3ce2827e16a4b1cd12f954e27bd85f0720696c72114fe786531d1fb00946532b",
+    "original/data/v1.1/submission-schema.json": "f3402a7c031acd943fe92d2f9440193da2e1f66083809110bd26f1e165b3a590",
+    "tables/prompts.jsonl": "92611e279d1c0f0c3125642274e5bf05740701d669070098d1305a8fd971a3fe",
+    "tables/reference_answers.jsonl": "b6f8dafc3500f649225a78d009e2ea000be119ba872101f0b2990a63aef73377",
+    "tables/cases.jsonl": "e10f167a913cad5a07cfece4ed20ac2d20354f4110bd5e183b1f6bfc489e665e",
+    "DATA-LICENSE.md": "07fe1f8f809b6926d9680eca34fdff3e821b8987ab8b1c71d7314890d10f6f9f",
+    "citation.bib": "b5af1d686d26848933983dae4c407be19c4067db45c3e9a7a732b4a4c8e224f3",
+    "README.md": "79f69c9554e31427038f97e31d9fa838e5c86e00c1a0bf8c925756a147739888"
+  }
+}

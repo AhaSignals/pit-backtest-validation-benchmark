@@ -1,0 +1,258 @@
+{
+  "schemaVersion": "1.1.0",
+  "runId": "financial-ai-pit-integrity-v1-1-reference-2026-09-04",
+  "benchmarkId": "ahasignals-financial-ai-pit-integrity-benchmark-v1-1",
+  "benchmarkVersion": "1.1.0",
+  "generatedAt": "2026-09-04T00:00:00.000Z",
+  "implementation": "AhaSignals deterministic reference fixture",
+  "systemClass": "oracle reference; not an evaluated third-party AI system",
+  "result": "pass",
+  "summary": {
+    "caseCount": 8,
+    "trackCount": 2,
+    "evaluatedResponseCount": 16,
+    "passedResponseCount": 16,
+    "temporalIntegrityFailureCount": 0,
+    "issuerCount": 5,
+    "coreWeaveCaseCount": 2,
+    "bigBearAiCaseCount": 3,
+    "requiredAbstentionCount": 2
+  },
+  "scoring": {
+    "maximumPerResponse": 100,
+    "weights": {
+      "temporalAdmissibility": 40,
+      "accessionCitation": 25,
+      "answerAccuracy": 20,
+      "abstentionDiscipline": 10,
+      "evidenceCompleteness": 5
+    },
+    "hardFailureRule": "Any future accession citation, future answer or incorrect response status produces a temporal-integrity failure, regardless of aggregate points."
+  },
+  "results": [
+    {
+      "caseId": "AS-PIT-001",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-001",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-002",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-002",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-003",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-003",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-004",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-004",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-005",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-005",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-006",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-006",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-007",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-007",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-008",
+      "track": "retrieval",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    },
+    {
+      "caseId": "AS-PIT-008",
+      "track": "knowledge-contamination",
+      "status": "pass",
+      "hardFailure": false,
+      "score": 100,
+      "dimensions": {
+        "temporalAdmissibility": 40,
+        "accessionCitation": 25,
+        "answerAccuracy": 20,
+        "abstentionDiscipline": 10,
+        "evidenceCompleteness": 5
+      }
+    }
+  ]
+}
