@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "creator": "AhaSignals",
+  "sourceHashes": {
+    "data/v1.1/benchmark.json": "0102ad1873c947fb80a8e946d8fb84b5c6da4cade2da8f237bd0ebba6baee532",
+    "data/v1.1/reference-submission.jsonl": "59ed428637e9e5dc84a87a43587f797462c889e4816eee0feb7ec08376b3ded2",
+    "scripts/score-submission.mjs": "ef16143228a11a67aa330a0fbf81c2ea1fd6e62251a82e7ded8089209ebe5686",
+    "scripts/lib/error-controls.mjs": "a3f658e3437c127206e07e9212052478cffac9b39504479492b5624e84ca5fa5",
+    "scripts/build-error-controls.mjs": "4235e990d4f80f31663e0207719692c2ce50db56870cb6beefcf8528d029a067",
+    "scripts/verify-error-controls.mjs": "5e94c1c1ce839aa504e893209dc3f2206e343709c54697f5226fe6903b071ca3"
+  },
+  "files": {
+    "controls.jsonl": "518f8c9d0946e3882ae00f4ebe8c1c49879308c966f5cd2e5c40e035b82c36fe",
+    "summary.json": "db4c011d4cf7217ee7736f6ef9bc06edf366668f122c1a3f988637a2d7588d5e"
+  }
+}

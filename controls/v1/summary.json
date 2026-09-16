@@ -1,0 +1,137 @@
+{
+  "version": "1.0.0",
+  "creator": "AhaSignals",
+  "publishedAt": "2026-09-16",
+  "benchmarkVersion": "1.1.0",
+  "benchmarkDoi": "10.5281/zenodo.22289017",
+  "counts": {
+    "selectedCases": 8,
+    "tracks": 2,
+    "alteredSubmissions": 16,
+    "temporalFailures": 10,
+    "nonTemporalRejections": 6
+  },
+  "boundary": "Synthetic scorer regression controls. Each run changes one field in one response of a 16-response reference submission. Not observed model errors, independent cases, or market-wide error rates.",
+  "cases": [
+    {
+      "caseId": "AS-PIT-001",
+      "label": "Backfill the later revenue comparative",
+      "changedField": "answer",
+      "before": 1212788000,
+      "after": 1212000000,
+      "expected": {
+        "result": "fail",
+        "score": 40,
+        "hardFailure": true
+      },
+      "caseUrl": "https://ahasignals.com/research/point-in-time-financial-data/#AS-PIT-001"
+    },
+    {
+      "caseId": "AS-PIT-002",
+      "label": "Backfill the later investing-cash sign",
+      "changedField": "answer",
+      "before": {
+        "value": 26109000,
+        "sign": "positive"
+      },
+      "after": {
+        "value": -6000000,
+        "sign": "negative"
+      },
+      "expected": {
+        "result": "fail",
+        "score": 40,
+        "hardFailure": true
+      },
+      "caseUrl": "https://ahasignals.com/research/point-in-time-financial-data/#AS-PIT-002"
+    },
+    {
+      "caseId": "AS-PIT-003",
+      "label": "Treat preliminary evidence as a filed record",
+      "changedField": "answer",
+      "before": {
+        "sourceStatus": "preliminary",
+        "primaryMatrixEligible": false
+      },
+      "after": {
+        "sourceStatus": "filed",
+        "primaryMatrixEligible": true
+      },
+      "expected": {
+        "result": "fail",
+        "score": 40,
+        "hardFailure": true
+      },
+      "caseUrl": "https://ahasignals.com/research/point-in-time-financial-data/#AS-PIT-003"
+    },
+    {
+      "caseId": "AS-PIT-004",
+      "label": "Hide the source upgrade behind an unchanged value",
+      "changedField": "answer.evidenceChanged",
+      "before": true,
+      "after": false,
+      "expected": {
+        "result": "fail",
+        "score": 80,
+        "hardFailure": false
+      },
+      "caseUrl": "https://ahasignals.com/research/point-in-time-financial-data/#AS-PIT-004"
+    },
+    {
+      "caseId": "AS-PIT-005",
+      "label": "Allow a synchronized ranking while retaining unequal period ends",
+      "changedField": "answer.strictSynchronizedRankingAllowed",
+      "before": false,
+      "after": true,
+      "expected": {
+        "result": "fail",
+        "score": 80,
+        "hardFailure": false
+      },
+      "caseUrl": "https://ahasignals.com/research/point-in-time-financial-data/#AS-PIT-005"
+    },
+    {
+      "caseId": "AS-PIT-006",
+      "label": "Cite the later restatement before non-reliance",
+      "changedField": "citedAccessions",
+      "before": [
+        "0001628280-23-010166"
+      ],
+      "after": [
+        "0001628280-25-014752"
+      ],
+      "expected": {
+        "result": "fail",
+        "score": 35,
+        "hardFailure": true
+      },
+      "caseUrl": "https://ahasignals.com/research/point-in-time-financial-data/#AS-PIT-006"
+    },
+    {
+      "caseId": "AS-PIT-007",
+      "label": "Claim to have answered during the non-reliance window",
+      "changedField": "responseStatus",
+      "before": "abstained",
+      "after": "answered",
+      "expected": {
+        "result": "fail",
+        "score": 50,
+        "hardFailure": true
+      },
+      "caseUrl": "https://ahasignals.com/research/point-in-time-financial-data/#AS-PIT-007"
+    },
+    {
+      "caseId": "AS-PIT-008",
+      "label": "Retain the withdrawn prior value after restatement",
+      "changedField": "answer",
+      "before": -111367000,
+      "after": -121674000,
+      "expected": {
+        "result": "fail",
+        "score": 80,
+        "hardFailure": false
+      },
+      "caseUrl": "https://ahasignals.com/research/point-in-time-financial-data/#AS-PIT-008"
+    }
+  ]
+}

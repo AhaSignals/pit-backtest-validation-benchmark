@@ -24,7 +24,7 @@ An independent run is a fourth object: cite its own preserved manifest and respo
 
 ## Portable tables
 
-[The dataset card](../distribution/huggingface/README.md) describes separately loadable prompts, answers and case annotations. These tables are ready for a dataset host, but their presence in this repository does not imply that any particular external host has published them.
+[The public dataset](https://huggingface.co/datasets/AhaSignals/financial-ai-pit-integrity) has separately loadable prompts, reference answers and annotated cases. [The dataset card](../distribution/huggingface/README.md) documents their limitations. The verified distribution revision is pinned in `distribution/published-hub.json`.
 
 ```sh
 npm run build:distribution
@@ -32,3 +32,39 @@ npm run verify:distribution
 ```
 
 The generator copies frozen files byte-for-byte and records source and output SHA-256 hashes. Verification reconstructs each original JSON object from its table row and replays the answer table through the unchanged scorer. Never provide the case annotations or answer table to the evaluated model.
+
+## Export verified prompts without loading answers
+
+From this repository, with Node.js 18 or later:
+
+```sh
+npm run export:hub-prompts -- --hub --out pit-prompts
+```
+
+This makes three public reads at the pinned Hugging Face commit: manifest, prompt table and original prompts. It checks the pinned manifest hash, file hashes and exact round trip, then writes only `prompts.jsonl` and `receipt.json` to a new directory. It refuses to overwrite an existing directory. The receipt records verification time, version and code/input hashes; it is not a historical observation receipt. No API key, model request or remote code is involved.
+
+For an offline check of the repository copy:
+
+```sh
+npm run export:hub-prompts -- --local distribution/huggingface --out pit-prompts-local
+```
+
+The prompts still require the evidence allowed by the independent-run protocol. Export does not run a model or make public answers into a held-out test.
+
+For users of the Python `datasets` library, pin the same revision and load only the prompt configuration:
+
+```python
+import json
+from datasets import load_dataset
+rows = load_dataset(
+    "AhaSignals/financial-ai-pit-integrity", "prompts",
+    split="calibration", revision="4b7c5ec4ad3f0d14187d1eada3bef9f85df5b229",
+)
+prompts = [json.loads(row["prompt_json"]) for row in rows]
+```
+
+The `datasets` example selects a fixed revision but does not replace the explicit hash verification above. See the [upstream loading documentation](https://huggingface.co/docs/datasets/en/loading).
+
+## Test the acceptance rule
+
+Run `npm run verify:controls`. Read [the single-field error-control guide](../controls/v1/README.md) before interpreting its results. Six selected wrong responses have no temporal diagnostic but still fail the complete scorer; checking only the temporal count would miss them. These are synthetic tests, not model measurements or estimates of error prevalence.

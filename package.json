@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Open conformance cases for testing point-in-time integrity in financial AI and SEC-filing backtests.",
   "scripts": {
-    "test": "node scripts/check-public-identity.mjs && node scripts/verify.mjs && node scripts/verify-v1.1.mjs && node scripts/verify-operator-evidence.mjs && node scripts/score-submission.mjs && node scripts/verify-results.mjs && node scripts/test-independent-tooling.mjs && node scripts/verify-distribution.mjs",
+    "test": "node scripts/check-public-identity.mjs && node scripts/verify.mjs && node scripts/verify-v1.1.mjs && node scripts/verify-operator-evidence.mjs && node scripts/score-submission.mjs && node scripts/verify-results.mjs && node scripts/test-independent-tooling.mjs && node scripts/verify-distribution.mjs && node scripts/verify-error-controls.mjs && node scripts/test-hub-prompts.mjs",
     "check:public-identity": "node scripts/check-public-identity.mjs",
     "verify": "node scripts/verify.mjs && node scripts/verify-v1.1.mjs",
     "score": "node scripts/score-submission.mjs",
@@ -16,7 +16,9 @@
     "verify:independent": "node scripts/verify-independent-result.mjs",
     "package:independent": "node scripts/package-independent-result.mjs",
     "build:distribution": "node scripts/build-distribution.mjs",
-    "verify:distribution": "node scripts/verify-distribution.mjs"
+    "verify:distribution": "node scripts/verify-distribution.mjs",
+    "verify:controls": "node scripts/verify-error-controls.mjs",
+    "export:hub-prompts": "node scripts/export-hub-prompts.mjs"
   },
   "engines": {
     "node": ">=18"
